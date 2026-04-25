@@ -1,0 +1,229 @@
+/* pages/records/records.wxss */
+.container {
+  padding: 20rpx;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.header-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.header-subtitle {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.filter-section {
+  background-color: white;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.filter-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.filter-options {
+  display: flex;
+  gap: 20rpx;
+  flex-wrap: wrap;
+}
+
+.filter-option {
+  padding: 10rpx 20rpx;
+  background-color: #f5f5f5;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+  border: 1rpx solid #ddd;
+}
+
+.filter-option.selected {
+  background-color: #07c160;
+  color: white;
+  border-color: #07c160;
+}
+
+.records-list {
+  background-color: white;
+  border-radius: 8rpx;
+  padding: 20rpx;
+}
+
+.record-item {
+  border-bottom: 1rpx solid #f0f0f0;
+  padding: 20rpx 0;
+}
+
+.record-item:last-child {
+  border-bottom: none;
+}
+
+.record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.record-date {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.record-type {
+  font-size: 24rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 12rpx;
+}
+
+.record-type.expense {
+  background-color: #fff1f0;
+  color: #cf1322;
+}
+
+.record-type.income {
+  background-color: #f6ffed;
+  color: #389e0d;
+}
+
+.record-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.record-info {
+  flex: 1;
+}
+
+.record-category {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 5rpx;
+}
+
+.record-remark {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.record-amount {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.record-amount.expense {
+  color: #cf1322;
+}
+
+.record-amount.income {
+  color: #389e0d;
+}
+
+.record-actions {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 10rpx;
+}
+
+.btn-primary {
+  background-color: #1890ff;
+  color: white;
+  border-radius: 6rpx;
+  font-size: 24rpx;
+  padding: 6rpx 12rpx;
+}
+
+.btn-danger {
+  background-color: #ff4d4f;
+  color: white;
+  border-radius: 6rpx;
+  font-size: 24rpx;
+  padding: 6rpx 12rpx;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 响应式设置计 */
+@media (max-width: 750rpx) {
+  .container {
+    padding: 10rpx;
+  }
+
+  .header-title {
+    font-size: 32rpx;
+  }
+
+  .header-subtitle {
+    font-size: 24rpx;
+  }
+
+  .filter-section {
+    padding: 15rpx;
+  }
+
+  .filter-title {
+    font-size: 28rpx;
+  }
+
+  .filter-option {
+    font-size: 26rpx;
+    padding: 8rpx 16rpx;
+  }
+
+  .records-list {
+    padding: 15rpx;
+  }
+
+  .record-date {
+    font-size: 26rpx;
+  }
+
+  .record-type {
+    font-size: 22rpx;
+  }
+
+  .record-category {
+    font-size: 28rpx;
+  }
+
+  .record-remark {
+    font-size: 24rpx;
+  }
+
+  .record-amount {
+    font-size: 32rpx;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    font-size: 22rpx;
+    padding: 4rpx 10rpx;
+  }
+}

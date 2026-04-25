@@ -1,0 +1,78 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="title">视频教程</view>
+  
+  <!-- 视频分类 -->
+  <view class="card">
+    <view class="category-section">
+      <view class="category-title">视频分类</view>
+      <view class="category-list">
+        <view class="category-item" bindtap="viewCategory" data-category="finance">
+          <view class="category-icon">💰</view>
+          <view class="category-name">财务管理</view>
+        </view>
+        <view class="category-item" bindtap="viewCategory" data-category="investment">
+          <view class="category-icon">📈</view>
+          <view class="category-name">投资知识</view>
+        </view>
+        <view class="category-item" bindtap="viewCategory" data-category="debt">
+          <view class="category-icon">💳</view>
+          <view class="category-name">债务管理</view>
+        </view>
+        <view class="category-item" bindtap="viewCategory" data-category="budget">
+          <view class="category-icon">📊</view>
+          <view class="category-name">预算控制</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 精选视频 -->
+  <view class="card">
+    <view class="featured-section">
+      <view class="featured-title">精选视频</view>
+      <view class="video-list">
+        <view class="video-item" bindtap="viewVideo" data-index="{{index}}" wx:for="{{featuredVideos}}" wx:key="index">
+          <view class="video-thumbnail">{{item.thumbnail}}</view>
+          <view class="video-content">
+            <view class="video-title">{{item.title}}</view>
+            <view class="video-summary">{{item.summary}}</view>
+            <view class="video-meta">
+              <text class="video-time">{{item.time}}</text>
+              <text class="video-views">{{item.views}}观看</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 最新视频 -->
+  <view class="card">
+    <view class="latest-section">
+      <view class="latest-title">最新视频</view>
+      <view class="latest-list">
+        <view class="latest-item" bindtap="viewVideo" data-index="{{index + featuredVideos.length}}" wx:for="{{latestVideos}}" wx:key="index">
+          <view class="latest-content">
+            <view class="latest-title">{{item.title}}</view>
+            <view class="latest-meta">
+              <text class="latest-time">{{item.time}}</text>
+              <text class="latest-views">{{item.views}}观看</text>
+            </view>
+          </view>
+          <view class="latest-icon">→</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 搜索功能 -->
+  <view class="card">
+    <view class="search-section">
+      <view class="search-box">
+        <input class="search-input" placeholder="搜索视频" value="{{searchText}}" bindinput="onSearchInput" />
+        <button class="search-btn" bindtap="performSearch">搜索</button>
+      </view>
+    </view>
+  </view>
+</view>

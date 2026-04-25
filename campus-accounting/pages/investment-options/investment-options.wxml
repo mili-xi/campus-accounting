@@ -1,0 +1,74 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="title">投资选项</view>
+  
+  <!-- 投资产品分类 -->
+  <view class="card">
+    <view class="categories-section">
+      <view class="section-title">投资产品分类</view>
+      <view class="categories-list">
+        <view class="category-item" wx:for="{{investmentCategories}}" wx:key="index" bindtap="openCategory" data-index="{{index}}">
+          <view class="category-icon">{{item.icon}}</view>
+          <view class="category-info">
+            <view class="category-name">{{item.name}}</view>
+            <view class="category-desc">{{item.description}}</view>
+          </view>
+          <view class="category-arrow">→</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 热门投资产品 -->
+  <view class="card">
+    <view class="products-section">
+      <view class="section-title">热门投资产品</view>
+      <view class="products-list">
+        <view class="product-item" wx:for="{{popularProducts}}" wx:key="index" bindtap="openProduct" data-index="{{index}}">
+          <view class="product-icon">{{item.icon}}</view>
+          <view class="product-info">
+            <view class="product-name">{{item.name}}</view>
+            <view class="product-desc">{{item.description}}</view>
+            <view class="product-meta">
+              <text class="product-type">{{item.type}}</text>
+              <text class="product-rating">{{item.rating}}分</text>
+              <text class="product-users">{{item.users}}人投资</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 最新投资产品 -->
+  <view class="card">
+    <view class="new-products-section">
+      <view class="section-title">最新投资产品</view>
+      <view class="new-products-list">
+        <view class="new-product-item" wx:for="{{newProducts}}" wx:key="index" bindtap="openNewProduct" data-index="{{index}}">
+          <view class="new-product-icon">{{item.icon}}</view>
+          <view class="new-product-info">
+            <view class="new-product-name">{{item.name}}</view>
+            <view class="new-product-desc">{{item.description}}</view>
+            <view class="new-product-meta">
+              <text class="new-product-type">{{item.type}}</text>
+              <text class="new-product-rating">{{item.rating}}分</text>
+              <text class="new-product-users">{{item.users}}人投资</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 搜索投资产品 -->
+  <view class="card">
+    <view class="search-section">
+      <view class="section-title">搜索投资产品</view>
+      <view class="search-box">
+        <input class="search-input" placeholder="搜索投资产品" value="{{searchText}}" bindinput="onSearchInput" />
+        <button class="search-btn" bindtap="searchProducts">搜索</button>
+      </view>
+    </view>
+  </view>
+</view>

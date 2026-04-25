@@ -1,0 +1,119 @@
+/* pages/add-record/add-record.wxss */
+.container {
+  padding: 20rpx;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.form-label {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  padding: 20rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+}
+
+.form-picker {
+  width: 100%;
+  padding: 20rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  background-color: white;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 20rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  min-height: 200rpx;
+}
+
+.btn-container {
+  margin-top: 40rpx;
+  display: flex;
+  gap: 20rpx;
+}
+
+.btn-primary {
+  flex: 1;
+  background-color: #07c160;
+  color: white;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  padding: 20rpx;
+}
+
+.btn-warning {
+  flex: 1;
+  background-color: #faad14;
+  color: white;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  padding: 20rpx;
+}
+
+.loan-warning {
+  background-color: #fff7e6;
+  border: 1rpx solid #ffd591;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  font-size: 28rpx;
+  color: #fa8c16;
+}
+
+.loan-warning-icon {
+  font-size: 32rpx;
+}
+
+.loan-warning-text {
+  flex: 1;
+}
+
+/* 响应式设置计 */
+@media (max-width: 750rpx) {
+  .container {
+    padding: 10rpx;
+  }
+
+  .form-label {
+    font-size: 28rpx;
+  }
+
+  .form-input,
+  .form-picker,
+  .form-textarea {
+    font-size: 28rpx;
+    padding: 15rpx;
+  }
+
+  .btn-primary,
+  .btn-warning {
+    font-size: 28rpx;
+    padding: 15rpx;
+  }
+
+  .loan-warning {
+    font-size: 26rpx;
+    padding: 15rpx;
+  }
+
+  .loan-warning-icon {
+    font-size: 28rpx;
+  }
+}

@@ -1,0 +1,368 @@
+/* 页面整体样式 */
+.container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 评分卡片特殊样式 */
+.score-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+.score-card .subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 标题样式 */
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+/* 副标题样式 */
+.subtitle {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1976D2;
+  margin-bottom: 20rpx;
+  border-bottom: 2rpx solid #1976D2;
+  padding-bottom: 10rpx;
+}
+
+/* 正文样式 */
+.text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+  display: block;
+  margin-bottom: 15rpx;
+}
+
+.score-card .text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 介绍样式 */
+.intro {
+  margin-bottom: 30rpx;
+}
+
+/* 评分显示样式 */
+.score-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40rpx 0;
+}
+
+.score-circle {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.score-text {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 10rpx;
+}
+
+/* 评分描述样式 */
+.score-description {
+  margin-bottom: 20rpx;
+}
+
+.score-suggestion {
+  margin-bottom: 30rpx;
+}
+
+/* 消费行为分析样式 */
+.behavior-analysis {
+  margin-top: 20rpx;
+}
+
+.analysis-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.analysis-item:last-child {
+  border-bottom: none;
+}
+
+/* 金额样式 */
+.amount {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.amount-income {
+  color: #28a745;
+}
+
+.amount-expense {
+  color: #dc3545;
+}
+
+/* 消费习惯类型样式 */
+.habit-type {
+  margin-top: 20rpx;
+}
+
+.type-card {
+  padding: 40rpx;
+  background-color: #f8f9fa;
+  border-radius: 16rpx;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.type-card.active {
+  background-color: #e7f3ff;
+  border: 2rpx solid #1976D2;
+}
+
+.type-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.type-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #1976D2;
+  margin-bottom: 20rpx;
+}
+
+.type-description {
+  margin-top: 20rpx;
+}
+
+.type-description .text {
+  color: #666;
+  line-height: 1.5;
+}
+
+/* 消费优势样式 */
+.advantages {
+  margin-top: 20rpx;
+}
+
+.advantage-item {
+  padding: 15rpx;
+  background-color: #d4edda;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+  border-left: 6rpx solid #28a745;
+}
+
+.advantage-item .text {
+  color: #155724;
+  margin: 0;
+}
+
+/* 消费劣势样式 */
+.warning-card {
+  background-color: #fff3cd;
+  border-left: 8rpx solid #ffc107;
+}
+
+.warning-card .subtitle {
+  color: #856404;
+}
+
+.disadvantages {
+  margin-top: 20rpx;
+}
+
+.disadvantage-item {
+  padding: 15rpx;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+}
+
+.disadvantage-item .text {
+  color: #856404;
+  margin: 0;
+}
+
+/* 消费习惯改善计划样式 */
+.improvement-plan {
+  margin-top: 20rpx;
+}
+
+.plan-item {
+  padding: 15rpx;
+  background-color: #e7f3ff;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+  border-left: 6rpx solid #1976D2;
+}
+
+.plan-item .text {
+  color: #0c5460;
+  margin: 0;
+}
+
+/* 消费习惯培养建议样式 */
+.habit-suggestions {
+  margin-top: 20rpx;
+}
+
+.suggestion-item {
+  padding: 15rpx;
+  background-color: #f8f9fa;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+}
+
+.suggestion-item .text {
+  color: #333;
+  margin: 0;
+}
+
+/* 学习资源样式 */
+.learning-resources {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+/* 定期提醒样式 */
+.reminder-settings {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+/* 按钮样式 */
+.btn-primary {
+  width: 100%;
+  background-color: #1976D2;
+  color: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.btn-warning {
+  width: 100%;
+  background-color: #ffc107;
+  color: #000;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.btn-danger {
+  width: 100%;
+  background-color: #dc3545;
+  color: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.btn-primary:active,
+.btn-warning:active,
+.btn-danger:active {
+  transform: scale(0.98);
+}
+
+/* 完成功按钮样式 */
+.finish-btn {
+  margin-top: 40rpx;
+  margin-bottom: 60rpx;
+}
+
+/* 页脚样式 */
+.footer {
+  margin-top: 30rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #e9ecef;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* 响应式设置计 */
+@media screen and (max-width: 750rpx) {
+  .container {
+    padding: 15rpx;
+  }
+  
+  .card {
+    padding: 25rpx;
+  }
+  
+  .title {
+    font-size: 36rpx;
+  }
+  
+  .subtitle {
+    font-size: 28rpx;
+  }
+  
+  .text {
+    font-size: 26rpx;
+  }
+  
+  .score-circle {
+    width: 160rpx;
+    height: 160rpx;
+  }
+  
+  .score-text {
+    font-size: 48rpx;
+  }
+}

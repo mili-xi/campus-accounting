@@ -1,0 +1,173 @@
+﻿<view class="container">
+  <view class="card">
+    <view class="title">📚 校园贷风险防范指南</view>
+    <view class="intro">
+      <text class="text">为了保护大学生的合法权益，预防和打击校园贷等非法金融活动，我们特此推出《校园贷风险防范指南》，帮助同学们识别风险，远离陷阱。</text>
+    </view>
+  </view>
+
+  <!-- 目录 -->
+  <view class="card">
+    <view class="subtitle">📋 目录</view>
+    <view class="section-list">
+      <view class="section-item" bindtap="scrollToSection" data-section="what">
+        <text class="text">1. 什么是校园贷？</text>
+      </view>
+      <view class="section-item" bindtap="scrollToSection" data-section="risks">
+        <text class="text">2. 校园贷的常见风险</text>
+      </view>
+      <view class="section-item" bindtap="scrollToSection" data-section="identify">
+        <text class="text">3. 如何识别非法校园贷？</text>
+      </view>
+      <view class="section-item" bindtap="scrollToSection" data-section="protect">
+        <text class="text">4. 如何保护自己？</text>
+      </view>
+      <view class="section-item" bindtap="scrollToSection" data-section="help">
+        <text class="text">5. 遇到问题怎么办？</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 内容 -->
+  <view class="card" id="what">
+    <view class="subtitle">1. 什么是校园贷？</view>
+    <view class="content">
+      <text class="text">校园贷是指一些网络贷款平台面向在校大学生开展的贷款业务。虽然有些是合法合规的，但也有不少平台存在极高的风险。</text>
+      <view class="example">
+        <text class="text">常见形式：</text>
+        <text class="text">• 消费分期贷款</text>
+        <text class="text">• 现金贷</text>
+        <text class="text">• 创业贷款</text>
+        <text class="text">• 培训贷款</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card" id="risks">
+    <view class="subtitle">2. 校园贷的常见风险</view>
+    <view class="content">
+      <view class="risk-item">
+        <text class="title">🎭 虚假宣传风险</text>
+        <text class="text">一些平台以"低利息"、"无担保"、"快速到账"等虚假宣传吸引大学生。</text>
+      </view>
+      <view class="risk-item">
+        <text class="title">📈 高息陷阱风险</text>
+        <text class="text">实际年利率可能高达30%以上，甚至达到100%，远超法定民间借贷利率。</text>
+      </view>
+      <view class="risk-item">
+        <text class="title">📝 合同陷阱风险</text>
+        <text class="text">合同中隐藏"手续费"、"服务费"、"违约金额"等条款，导致还款金额远超预期。</text>
+      </view>
+      <view class="risk-item">
+        <text class="title">🔐 信息泄露风险</text>
+        <text class="text">非法平台可能会收集、泄露甚至出售学生的个人信息，造成严重后果。</text>
+      </view>
+      <view class="risk-item">
+        <text class="title">💬 暴力催收入风险</text>
+        <text class="text">逾期后可能会遭遇电话骚扰、短信轰炸、威胁恐吓等暴力催收行为。</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card" id="identify">
+    <view class="subtitle">3. 如何识别非法校园贷？</view>
+    <view class="content">
+      <text class="text">遇到以下情况，一定要提高警惕：</text>
+      <view class="warning-list">
+        <view class="warning-item">
+          <text class="text">• 无需任何担保，仅凭身份证就能贷款</text>
+        </view>
+        <view class="warning-item">
+          <text class="text">• 贷款门槛低，审批速度过快</text>
+        </view>
+        <view class="warning-item">
+          <text class="text">• 贷款前先收取"手续费"、"利息"、"保证金"等费用</text>
+        </view>
+        <view class="warning-item">
+          <text class="text">• 声称"利率低"但未明确年化利率</text>
+        </view>
+        <view class="warning-item">
+          <text class="text">• 利用各种名义引导消费，如"培训贷款"、"创业贷款"等</text>
+        </view>
+        <view class="warning-item">
+          <text class="text">• 平台无资质、无监管、无固定经营场所</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card" id="protect">
+    <view class="subtitle">4. 如何保护自己？</view>
+    <view class="content">
+      <view class="protect-item">
+        <text class="title">🎓 树立正确的消费观</text>
+        <text class="text">合理规划消费，量入为出，避免盲目攀比和超前消费。</text>
+      </view>
+      <view class="protect-item">
+        <text class="title">📚 增强金融知识</text>
+        <text class="text">了解金融常识，识别各类金融陷阱，提高风险防范意识。</text>
+      </view>
+      <view class="protect-item">
+        <text class="title">🚫 拒绝非法贷款</text>
+        <text class="text">坚决拒绝任何形式的非法校园贷，不轻易相信陌生人的贷款承诺。</text>
+      </view>
+      <view class="protect-item">
+        <text class="title">🔒 保护个人信息</text>
+        <text class="text">妥善保管身份证、学生证、银行卡等个人证件，不随意泄露个人信息。</text>
+      </view>
+      <view class="protect-item">
+        <text class="title">💳 谨慎使用信用卡</text>
+        <text class="text">合理使用信用卡，避免逾期还款，维护良好的信用记录。</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card" id="help">
+    <view class="subtitle">5. 遇到问题怎么办？</view>
+    <view class="content">
+      <text class="text">如果您或您的同学遇到了校园贷相关问题，请及时采取以下措施：</text>
+      <view class="action-list">
+        <view class="action-item">
+          <text class="text">• 保持冷静，不要慌张，及时与家人、老师沟通</text>
+        </view>
+        <view class="action-item">
+          <text class="text">• 保留所有相关证据，如合同、转账记录、聊天记录等</text>
+        </view>
+        <view class="action-item">
+          <text class="text">• 向学校保卫处、学生处或辅导员寻求帮助</text>
+        </view>
+        <view class="action-item">
+          <text class="text">• 向当地公安机关报案</text>
+        </view>
+        <view class="action-item">
+          <text class="text">• 向中国互联网金融协会等相关机构投诉</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 知识测验 -->
+  <view class="card">
+    <view class="subtitle">📝 知识测验</view>
+    <text class="text">完成测验，帮助您更好地掌握风险防范知识。</text>
+    <button class="btn-primary" bindtap="startQuiz">开始测验</button>
+  </view>
+
+  <!-- 风险评估 -->
+  <view class="card">
+    <view class="subtitle">🔍 风险评估</view>
+    <text class="text">您是否遇到过以下情况？完成评估，我们将为您提供个性化的建议。</text>
+    <button class="btn-warning" bindtap="startAssessment">进行风险评估</button>
+  </view>
+
+  <!-- 总结 -->
+  <view class="card">
+    <view class="title">📌 总结</view>
+    <text class="text">校园贷风险防范需要我们共同努力，希望同学们能够认真阅读本指南，增强风险意识，远离非法校园贷，保护自己的合法权益。</text>
+    <view class="footer">
+      <text class="text">如果您有任何疑问或需要帮助，请及时联系学校相关部门或专业机构。</text>
+    </view>
+  </view>
+
+  <button class="btn-primary finish-btn" bindtap="finishGuide">我已阅读并理解</button>
+</view>

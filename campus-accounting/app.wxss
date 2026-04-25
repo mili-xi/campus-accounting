@@ -1,0 +1,184 @@
+/* 全局样式 */
+page {
+  background-color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+}
+
+/* 标题样式 */
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+
+/* 副标题样式 */
+.subtitle {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #1976D2;
+  margin-bottom: 15rpx;
+  border-bottom: 2rpx solid #1976D2;
+  padding-bottom: 10rpx;
+}
+
+/* 文本样式 */
+.text {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.6;
+}
+
+/* 按钮样式 */
+.btn-primary {
+  background-color: #1976D2;
+  color: #ffffff;
+  border-radius: 50rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  text-align: center;
+  margin: 20rpx 0;
+}
+
+.btn-warning {
+  background-color: #FFC107;
+  color: #333333;
+  border-radius: 50rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  text-align: center;
+  margin: 20rpx 0;
+}
+
+.btn-danger {
+  background-color: #F44336;
+  color: #ffffff;
+  border-radius: 50rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  text-align: center;
+  margin: 20rpx 0;
+}
+
+/* 输入框样式 */
+.input {
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  margin: 10rpx 0;
+}
+
+/* 选择器样式 */
+.picker {
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  margin: 10rpx 0;
+  background-color: #ffffff;
+}
+
+/* 列表项样式 */
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+/* 金额样式 */
+.amount {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.amount-income {
+  color: #4CAF50;
+}
+
+.amount-expense {
+  color: #F44336;
+}
+
+/* 图表容器 */
+.chart-container {
+  width: 100%;
+  height: 400rpx;
+  margin: 20rpx 0;
+}
+
+/* 加载动画 */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40rpx;
+}
+
+/* 空状态态 */
+.empty {
+  text-align: center;
+  color: #999999;
+  padding: 60rpx;
+  font-size: 28rpx;
+}
+
+/* 创新功能入口样式 */
+.innovation-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+  margin-top: 20rpx;
+}
+
+.innovation-actions .btn-primary,
+.innovation-actions .btn-warning,
+.innovation-actions .btn-danger {
+  width: 100%;
+  padding: 25rpx;
+  font-size: 30rpx;
+  border-radius: 12rpx;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.innovation-actions .btn-primary:active,
+.innovation-actions .btn-warning:active,
+.innovation-actions .btn-danger:active {
+  transform: scale(0.98);
+}
+
+/* 警告提示样式 */
+.warning-tip {
+  background-color: #FFF3CD;
+  color: #856404;
+  border: 1rpx solid #FFEAA7;
+  border-radius: 8rpx;
+  padding: 15rpx 20rpx;
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}

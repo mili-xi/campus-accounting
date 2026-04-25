@@ -1,0 +1,148 @@
+﻿<view class="container">
+  <view class="card">
+    <view class="title">⚠️ 债务预警系统</view>
+    <view class="intro">
+      <text class="text">我们的债务预警系统可以帮助您及时识别和预防债务风险，保障您的财务安全。</text>
+    </view>
+  </view>
+
+  <!-- 风险评估 -->
+  <view class="card">
+    <view class="subtitle">🔍 当前债务风险评估</view>
+    <view class="risk-assessment">
+      <view class="risk-score">
+        <text class="text">风险评分: </text>
+        <text class="score {{riskLevel === 'high' ? 'score-high' : riskLevel === 'medium' ? 'score-medium' : 'score-low'}}">{{riskScore}}</text>
+      </view>
+      <view class="risk-level">
+        <text class="text">风险等级: </text>
+        <text class="level {{riskLevel === 'high' ? 'level-high' : riskLevel === 'medium' ? 'level-medium' : 'level-low'}}">{{riskLevelText}}</text>
+      </view>
+      <view class="risk-description">
+        <text class="text">{{riskDescription}}</text>
+      </view>
+    </view>
+    <button class="btn-primary" bindtap="viewRiskDetails">查看风险详情</button>
+  </view>
+
+  <!-- 债务分析 -->
+  <view class="card">
+    <view class="subtitle">📊 债务分析</view>
+    <view class="debt-analysis">
+      <view class="analysis-item">
+        <text class="text">总债务: </text>
+        <text class="amount amount-expense">¥{{totalDebt}}</text>
+      </view>
+      <view class="analysis-item">
+        <text class="text">月还款额: </text>
+        <text class="amount amount-expense">¥{{monthlyPayment}}</text>
+      </view>
+      <view class="analysis-item">
+        <text class="text">负债比率: </text>
+        <text class="amount {{debtRatio > 0.5 ? 'amount-expense' : 'amount-income'}}">{{debtRatio}}%</text>
+      </view>
+      <view class="analysis-item">
+        <text class="text">还款能力: </text>
+        <text class="amount {{debtServiceRatio > 0.3 ? 'amount-expense' : 'amount-income'}}">{{debtServiceRatio}}%</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 预警规则 -->
+  <view class="card">
+    <view class="subtitle">🎯 预警规则</view>
+    <view class="warning-rules">
+      <view class="rule-item">
+        <text class="text">• 负债比率 > 50% 时触发高风险预警</text>
+      </view>
+      <view class="rule-item">
+        <text class="text">• 还款能力 &lt; 30% 时触发中风险预警</text>
+      </view>
+      <view class="rule-item">
+        <text class="text">• 连续3个月超支出时触发低风险预警</text>
+      </view>
+      <view class="rule-item">
+        <text class="text">• 单笔消费超过预算10%时触发提醒</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 预警记录 -->
+  <view class="card" wx:if="{{hasWarningRecords}}">
+    <view class="subtitle">📝 预警记录</view>
+    <view class="warning-records">
+      <view class="record-item" wx:for="{{warningRecords}}" wx:key="index">
+        <view class="record-time">
+          <text class="text">{{item.time}}</text>
+        </view>
+        <view class="record-content">
+          <text class="text">{{item.content}}</text>
+        </view>
+        <view class="record-level level-{{item.level}}">
+          <text class="text">{{item.levelText}}</text>
+        </view>
+      </view>
+    </view>
+    <button class="btn-warning" bindtap="viewAllRecords">查看全部记录</button>
+  </view>
+
+  <!-- 风险预防建议 -->
+  <view class="card">
+    <view class="subtitle">💡 风险预防建议</view>
+    <view class="prevention-suggestions">
+      <view class="suggestion-item" wx:for="{{preventionSuggestions}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 债务管理工具 -->
+  <view class="card">
+    <view class="subtitle">🔧 债务管理工具</view>
+    <view class="debt-tools">
+      <button class="btn-primary" bindtap="debtCalculator">债务计算器</button>
+      <button class="btn-warning" bindtap="repaymentPlan">还款计划生成功</button>
+      <button class="btn-danger" bindtap="debtConsolidation">债务合并建议</button>
+    </view>
+  </view>
+
+  <!-- 紧急联系 -->
+  <view class="card">
+    <view class="subtitle">📞 紧急联系</view>
+    <text class="text">如果您遇到债务问题，请及时联系我们的专业顾问。</text>
+    <view class="contact-info">
+      <view class="contact-item">
+        <text class="text">电话: 400-123-4567</text>
+      </view>
+      <view class="contact-item">
+        <text class="text">邮箱: debt@campus-accounting.com</text>
+      </view>
+    </view>
+    <button class="btn-danger" bindtap="contactConsultant">立即联系</button>
+  </view>
+
+  <!-- 风险测试 -->
+  <view class="card">
+    <view class="subtitle">🎯 债务风险测试</view>
+    <text class="text">通过简单的测试，评估您的债务风险水平。</text>
+    <button class="btn-warning" bindtap="startRiskTest">开始测试</button>
+  </view>
+
+  <!-- 知识学习 -->
+  <view class="card">
+    <view class="subtitle">📚 知识学习</view>
+    <text class="text">了解更多债务管理知识，提高财务风险防范能力。</text>
+    <button class="btn-primary" bindtap="viewKnowledgeCenter">进入知识中心</button>
+  </view>
+
+  <!-- 总结 -->
+  <view class="card">
+    <view class="title">📌 总结</view>
+    <text class="text">我们的债务预警系统可以帮助您及时识别和预防债务风险，保障您的财务安全。请定期关注您的财务状态况，及时采取措施避免债务危机。</text>
+    <view class="footer">
+      <text class="text">如果您有任何疑问，请随时联系我们的专业顾问。</text>
+    </view>
+  </view>
+
+  <button class="btn-primary finish-btn" bindtap="finishReading">我已阅读并理解</button>
+</view>

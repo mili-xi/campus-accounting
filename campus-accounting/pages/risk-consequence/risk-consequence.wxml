@@ -1,0 +1,160 @@
+<view class="container">
+  <view class="card">
+    <view class="title">⚖️ 法律后果科普页</view>
+    <view class="intro">
+      <text class="text">校园贷等非法金额融活动不仅会给大学生带来经济损失败，还可能涉及法律问题。了解相关法律法规，有助于同学们识别风险，远离陷阱。</text>
+    </view>
+  </view>
+
+  <!-- 目录 -->
+  <view class="card">
+    <view class="subtitle">📋 目录</view>
+    <view class="section-list">
+      <view class="section-item" bindtap="scrollToSection" data-section="laws">
+        <text class="text">1. 相关法律法规</text>
+      </view>
+      <view class="section-item" bindtap="scrollToSection" data-section="illegal">
+        <text class="text">2. 非法校园贷的法律后果</text>
+      </view>
+      <view class="section-item" bindtap="scrollToSection" data-section="borrower">
+        <text class="text">3. 借款人的法律责任</text>
+      </view>
+      <view class="section-item" bindtap="scrollToSection" data-section="lender">
+        <text class="text">4. 贷款人的法律责任</text>
+      </view>
+      <view class="section-item" bindtap="scrollToSection" data-section="protections">
+        <text class="text">5. 大学生的法律保护</text>
+      </view>
+      <view class="section-item" bindtap="scrollToSection" data-section="actions">
+        <text class="text">6. 遇到问题如何维权</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 相关法律法规 -->
+  <view class="card" id="laws">
+    <view class="subtitle">1. 相关法律法规</view>
+    <view class="content">
+      <text class="text">与校园贷相关的法律法规主要包括：</text>
+      <view class="law-list">
+        <view class="law-item" wx:for="{{laws}}" wx:key="index">
+          <text class="text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 非法校园贷的法律后果 -->
+  <view class="card" id="illegal">
+    <view class="subtitle">2. 非法校园贷的法律后果</view>
+    <view class="content">
+      <text class="text">非法校园贷涉及的主要法律后果包括：</text>
+      <view class="consequence-list">
+        <view class="consequence-item" wx:for="{{illegalConsequences}}" wx:key="index">
+          <text class="text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 借款人的法律责任 -->
+  <view class="card" id="borrower">
+    <view class="subtitle">3. 借款人的法律责任</view>
+    <view class="content">
+      <text class="text">作为借款人，需要了解以下法律责任：</text>
+      <view class="responsibility-list">
+        <view class="responsibility-item" wx:for="{{borrowerResponsibilities}}" wx:key="index">
+          <text class="text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 贷款人的法律责任 -->
+  <view class="card" id="lender">
+    <view class="subtitle">4. 贷款人的法律责任</view>
+    <view class="content">
+      <text class="text">贷款人的法律责任主要包括：</text>
+      <view class="lender-list">
+        <view class="lender-item" wx:for="{{lenderResponsibilities}}" wx:key="index">
+          <text class="text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 大学生的法律保护 -->
+  <view class="card" id="protections">
+    <view class="subtitle">5. 大学生的法律保护</view>
+    <view class="content">
+      <text class="text">大学生作为特殊群体，享有以下法律保护：</text>
+      <view class="protection-list">
+        <view class="protection-item" wx:for="{{protections}}" wx:key="index">
+          <text class="text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 遇到问题如何维权 -->
+  <view class="card" id="actions">
+    <view class="subtitle">6. 遇到问题如何维权</view>
+    <view class="content">
+      <text class="text">如果您遇到了校园贷相关的法律问题，应该采取以下措施：</text>
+      <view class="action-list">
+        <view class="action-item" wx:for="{{actions}}" wx:key="index">
+          <text class="text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 法律案例 -->
+  <view class="card">
+    <view class="subtitle">⚖️ 真实案例</view>
+    <text class="text">通过真实案例，帮助您更好地理解校园贷的法律后果。</text>
+    <view class="case-list">
+      <view class="case-item">
+        <view class="case-title">案例一：高额利息导致的债务危机（高利贷+以贷养贷）</view>
+        <view class="case-content">
+          <text class="text">2023年，某高校学生张某因生活费不足，通过网络平台借款5000元，约定月利率30%。因无力按时还款，张某不断借新还旧周转，最终负债超过5万元。催收人员多次威胁恐吓张某及其家人，导致其出现严重心理问题。</text>
+        </view>
+      </view>
+      <view class="case-item">
+        <view class="case-title">案例二：暴力催收引发的法律纠纷（催收违法）</view>
+        <view class="case-content">
+          <text class="text">2022年，大学生李某因购买电子产品借款2000元，逾期后催收人员多次上门骚扰，并在学校和社区张贴其个人信息。李某报警后，公安机关介入调查，最终认定催收人员构成寻衅滋事罪，依法追究其刑事责任。</text>
+        </view>
+      </view>
+      <view class="case-item">
+        <view class="case-title">案例三：诈骗陷阱导致的财产损失（虚假贷款诈骗）</view>
+        <view class="case-content">
+          <text class="text">2024年，某高校学生王某在社交平台看到“低息贷款”广告，按要求提供个人信息并支付“手续费”，但始终未收到贷款。王某报警后，警方成功破获该诈骗团伙，挽回部分损失。</text>
+        </view>
+      </view>
+      <view class="case-item">
+        <view class="case-title">案例四：裸贷敲诈的名誉与精神双重打击（隐私泄露）</view>
+        <view class="case-content">
+          <text class="text">2021年，女大学生陈某为借钱整容，向平台提供了手持身份证的裸照作为担保。借款逾期后，对方以曝光裸照威胁，向其家人勒索钱财，陈某长期遭受精神折磨，最终被迫休学。</text>
+        </view>
+      </view>
+      <view class="case-item">
+        <view class="case-title">案例五：信息泄露引发的连锁风险（个人信息滥用）</view>
+        <view class="case-content">
+          <text class="text">2020年，大学生刘某在多个网贷平台借款，因无力偿还，被平台将其身份证、通讯录、家庭住址等信息转卖给第三方催收公司。随后刘某及家人频繁接到骚扰电话、恶意短信，甚至收到伪造的法院传票，正常生活被严重扰乱。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 总结 -->
+  <view class="card">
+    <view class="title">📌 总结</view>
+    <text class="text">了解校园贷的法律后果，有助于同学们增强法律意识，提高风险防范能力。我们希望同学们能够遵守法律法规，合理消费，远离校园贷陷阱。</text>
+    <view class="footer">
+      <text class="text">如果您需要法律帮助，请及时联系学校法律援助中心或专业律师。</text>
+    </view>
+  </view>
+
+  <button class="btn-primary finish-btn" bindtap="finishReading">我已阅读并理解</button>
+</view>

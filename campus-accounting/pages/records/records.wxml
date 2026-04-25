@@ -1,0 +1,83 @@
+<view class="container">
+  <view class="card">
+    <view class="title">记录</view>
+    
+    <!-- 筛选条件 -->
+    <view class="filter-section">
+      <view class="filter-row">
+        <picker mode="date" value="{{startDate}}" bindchange="onStartDateChange">
+          <view class="picker">开始日期: {{startDate}}</view>
+        </picker>
+        <picker mode="date" value="{{endDate}}" bindchange="onEndDateChange">
+          <view class="picker">结束日期: {{endDate}}</view>
+        </picker>
+      </view>
+      <view class="filter-row">
+        <picker value="{{typeIndex}}" range="{{types}}" bindchange="onTypeChange">
+          <view class="picker">类型: {{types[typeIndex]}}</view>
+        </picker>
+        <picker value="{{categoryIndex}}" range="{{categories}}" bindchange="onCategoryChange">
+          <view class="picker">分类: {{categories[categoryIndex]}}</view>
+        </picker>
+      </view>
+      <button class="btn-primary" bindtap="clearFilters">清空筛选</button>
+    </view>
+
+    <!-- 记录列表 -->
+    <view class="records-list">
+      <view wx:if="{{records.length > 0}}" class="records-container">
+        <view wx:for="{{records}}" wx:key="_id" class="record-item">
+          <view class="record-header">
+            <view class="record-info">
+              <text class="record-date">{{item.date}}</text>
+              <text class="record-category">{{item.category}}</text>
+            </view>
+            <text class="record-amount {{item.type === 'income' ? 'amount-income' : 'amount-expense'}}">
+              {{item.type === 'income' ? '+' : '-'}}¥{{item.amount}}
+            </text>
+          </view>
+          <view wx:if="{{item.remark}}" class="record-remark">
+            <text class="text">{{item.remark}}</text>
+          </view>
+          <view class="record-actions">
+            <button class="btn-primary" size="mini" bindtap="editRecord" data-id="{{item._id}}">编辑</button>
+            <button class="btn-danger" size="mini" bindtap="deleteRecord" data-id="{{item._id}}">删除</button>
+          </view>
+        </view>
+      </view>
+      <view wx:else class="empty">
+        <text class="text">没有找到符合条件的记录</text>
+      </view>
+    </view>
+
+    <!-- 加载更多 -->
+    <view wx:if="{{hasMore}}" class="load-more">
+      <button class="btn-primary" bindtap="loadMore">加载更多</button>
+    </view>
+  </view>
+
+  <!-- 统计信息 -->
+  <view class="card">
+    <view class="title">统计信息</view>
+    <view class="stats-info">
+      <view class="stats-row">
+        <text class="text">总记录数: </text>
+        <text class="amount">{{totalCount}}</text>
+      </view>
+      <view class="stats-row">
+        <text class="text">总收入: </text>
+        <text class="amount amount-income">¥{{totalIncome}}</text>
+      </view>
+      <view class="stats-row">
+        <text class="text">总支出: </text>
+        <text class="amount amount-expense">¥{{totalExpense}}</text>
+      </view>
+      <view class="stats-row">
+        <text class="text">结余: </text>
+        <text class="amount {{totalIncome - totalExpense > 0 ? 'amount-income' : 'amount-expense'}}">
+          ¥{{totalIncome - totalExpense}}
+        </text>
+      </view>
+    </view>
+  </view>
+</view>

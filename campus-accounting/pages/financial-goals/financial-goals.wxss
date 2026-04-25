@@ -1,0 +1,237 @@
+/* pages/financial-goals/financial-goals.wxss */
+
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+}
+
+.goals-overview {
+  margin-bottom: 30rpx;
+}
+
+.overview-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 25rpx;
+}
+
+.overview-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.overview-item {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.label {
+  font-size: 28rpx;
+  color: #666666;
+  min-width: 150rpx;
+}
+
+.value {
+  font-size: 28rpx;
+  color: #1976D2;
+  font-weight: bold;
+}
+
+.goals-list-section {
+  margin-bottom: 30rpx;
+}
+
+.list-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 25rpx;
+}
+
+.goals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.goal-item {
+  padding: 20rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  background-color: #f9f9f9;
+}
+
+.goal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+  margin-bottom: 15rpx;
+}
+
+.goal-name {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: bold;
+}
+
+.goal-status {
+  font-size: 26rpx;
+  color: #666666;
+  padding: 5rpx 15rpx;
+  background-color: #e3f2fd;
+  border-radius: 12rpx;
+  width: fit-content;
+}
+
+.goal-desc {
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.4;
+}
+
+.goal-progress {
+  margin-bottom: 15rpx;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10rpx;
+  background-color: #e0e0e0;
+  border-radius: 5rpx;
+  overflow: hidden;
+  margin-bottom: 5rpx;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 5rpx;
+  transition: all 0.3s ease;
+}
+
+.progress-text {
+  font-size: 26rpx;
+  color: #1976D2;
+  font-weight: bold;
+}
+
+.goal-actions {
+  display: flex;
+  gap: 10rpx;
+  justify-content: flex-end;
+}
+
+.btn-detail,
+.btn-edit,
+.btn-delete {
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+  margin: 0;
+}
+
+.btn-detail {
+  background-color: #1976D2;
+  color: #ffffff;
+}
+
+.btn-edit {
+  background-color: #FFC107;
+  color: #333333;
+}
+
+.btn-delete {
+  background-color: #F44336;
+  color: #ffffff;
+}
+
+.add-goal-section {
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 25rpx;
+}
+
+.goal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.form-label {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.form-input {
+  padding: 20rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  background-color: #f9f9f9;
+}
+
+.form-textarea {
+  padding: 20rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  background-color: #f9f9f9;
+  min-height: 120rpx;
+}
+
+.form-picker {
+  padding: 20rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  background-color: #f9f9f9;
+}
+
+.picker-text {
+  color: #666666;
+}
+
+.submit-btn {
+  background-color: #1976D2;
+  color: #ffffff;
+  border-radius: 50rpx;
+  padding: 25rpx;
+  font-size: 30rpx;
+  text-align: center;
+  margin: 0;
+}
+
+.submit-btn:active {
+  background-color: #1565C0;
+}

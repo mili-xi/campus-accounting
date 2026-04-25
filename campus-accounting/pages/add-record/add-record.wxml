@@ -1,0 +1,47 @@
+<view class="container">
+  <view class="card">
+    <view class="title">{{isEditing ? '编辑记录' : '添加记录'}}</view>
+    
+    <!-- 日期选择 -->
+    <view class="form-item">
+      <text class="text">日期: </text>
+      <picker mode="date" value="{{date}}" bindchange="onDateChange">
+        <view class="picker">{{date}}</view>
+      </picker>
+    </view>
+
+    <!-- 类型选择 -->
+    <view class="form-item">
+      <text class="text">类型: </text>
+      <picker value="{{typeIndex}}" range="{{types}}" bindchange="onTypeChange">
+        <view class="picker">{{types[typeIndex]}}</view>
+      </picker>
+    </view>
+
+    <!-- 金额输入 -->
+    <view class="form-item">
+      <text class="text">金额: </text>
+      <input class="input" type="digit" placeholder="请输入金额" value="{{amount}}" bindinput="onAmountInput" />
+    </view>
+
+    <!-- 分类选择 -->
+    <view class="form-item">
+      <text class="text">分类: </text>
+      <picker value="{{categoryIndex}}" range="{{categories}}" bindchange="onCategoryChange">
+        <view class="picker">{{categories[categoryIndex]}}</view>
+      </picker>
+    </view>
+
+    <!-- 备注输入 -->
+    <view class="form-item">
+      <text class="text">备注: </text>
+      <input class="input" placeholder="请输入备注" value="{{remark}}" bindinput="onRemarkInput" />
+      <view class="warning-tip" wx:if="{{hasLoanKeyword}}">
+        ⚠️ 备注包含贷款相关词汇，可能存在校园贷风险！
+      </view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <button class="btn-primary" bindtap="submitRecord">{{isEditing ? '保存修改' : '提交'}}</button>
+  </view>
+</view>

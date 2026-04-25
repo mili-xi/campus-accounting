@@ -1,0 +1,74 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="title">成功案例</view>
+  
+  <!-- 案例分类 -->
+  <view class="card">
+    <view class="category-section">
+      <view class="category-title">案例分类</view>
+      <view class="category-list">
+        <view class="category-item" bindtap="viewCategory" data-category="debt">
+          <view class="category-icon">💰</view>
+          <view class="category-name">债务管理</view>
+        </view>
+        <view class="category-item" bindtap="viewCategory" data-category="saving">
+          <view class="category-icon">📈</view>
+          <view class="category-name">储蓄增长</view>
+        </view>
+        <view class="category-item" bindtap="viewCategory" data-category="budget">
+          <view class="category-icon">📊</view>
+          <view class="category-name">预算控制</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 精选案例 -->
+  <view class="card">
+    <view class="featured-section">
+      <view class="featured-title">精选案例</view>
+      <view class="case-list">
+        <view class="case-item" bindtap="viewCase" data-index="{{index}}" wx:for="{{featuredCases}}" wx:key="index">
+          <view class="case-image">{{item.image}}</view>
+          <view class="case-content">
+            <view class="case-title">{{item.title}}</view>
+            <view class="case-summary">{{item.summary}}</view>
+            <view class="case-meta">
+              <text class="case-time">{{item.time}}</text>
+              <text class="case-views">{{item.views}}阅读</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 热门案例 -->
+  <view class="card">
+    <view class="hot-section">
+      <view class="hot-title">热门案例</view>
+      <view class="hot-list">
+        <view class="hot-item" bindtap="viewCase" data-index="{{index + featuredCases.length}}" wx:for="{{hotCases}}" wx:key="index">
+          <view class="hot-content">
+            <view class="hot-title">{{item.title}}</view>
+            <view class="hot-meta">
+              <text class="hot-time">{{item.time}}</text>
+              <text class="hot-views">{{item.views}}阅读</text>
+            </view>
+          </view>
+          <view class="hot-icon">→</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 搜索功能 -->
+  <view class="card">
+    <view class="search-section">
+      <view class="search-box">
+        <input class="search-input" placeholder="搜索案例" value="{{searchText}}" bindinput="onSearchInput" />
+        <button class="search-btn" bindtap="performSearch">搜索</button>
+      </view>
+    </view>
+  </view>
+</view>

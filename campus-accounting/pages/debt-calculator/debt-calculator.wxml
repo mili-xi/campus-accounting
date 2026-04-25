@@ -1,0 +1,84 @@
+<view class="container">
+  <view class="card">
+    <view class="title">🧮 债务计算器</view>
+    <view class="intro">
+      <text class="text">使用债务计算器，帮助您计算债务还款计划、利息和还款总额。</text>
+    </view>
+  </view>
+
+  <!-- 债务信息 -->
+  <view class="card">
+    <view class="subtitle">🎯 债务信息</view>
+    <view class="debt-info">
+      <view class="info-item">
+        <text class="text">债务金额：</text>
+        <input class="input" type="digit" placeholder="请输入债务金额" value="{{debtAmount}}" bindinput="onDebtAmountInput" />
+      </view>
+      <view class="info-item">
+        <text class="text">年利率：</text>
+        <input class="input" type="digit" placeholder="请输入年利率" value="{{interestRate}}" bindinput="onInterestRateInput" />
+      </view>
+      <view class="info-item">
+        <text class="text">还款期限：</text>
+        <input class="input" type="digit" placeholder="请输入还款期限（月）" value="{{repaymentTerm}}" bindinput="onRepaymentTermInput" />
+      </view>
+      <view class="info-item">
+        <text class="text">还款方式：</text>
+        <picker class="picker" value="{{repaymentType}}" range="{{repaymentTypes}}" bindchange="onRepaymentTypeChange">
+          <text class="text">{{repaymentTypes[repaymentType]}}</text>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <!-- 计算结果 -->
+  <view class="card" wx:if="{{showResult}}">
+    <view class="subtitle">📊 计算结果</view>
+    <view class="calculation-result">
+      <view class="result-item">
+        <text class="text">每月还款：</text>
+        <text class="text result-text">¥{{monthlyPayment}}</text>
+      </view>
+      <view class="result-item">
+        <text class="text">总利息：</text>
+        <text class="text result-text">¥{{totalInterest}}</text>
+      </view>
+      <view class="result-item">
+        <text class="text">还款总额：</text>
+        <text class="text result-text">¥{{totalPayment}}</text>
+      </view>
+      <view class="result-item">
+        <text class="text">还款期数：</text>
+        <text class="text result-text">{{repaymentTerm}}期</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 还款计划 -->
+  <view class="card" wx:if="{{showResult}}">
+    <view class="subtitle">📝 还款计划</view>
+    <view class="repayment-plan">
+      <view class="plan-item" wx:for="{{repaymentPlan}}" wx:key="index">
+        <view class="plan-header">
+          <text class="text">第{{item.period}}期</text>
+          <text class="text">¥{{item.payment}}</text>
+        </view>
+        <view class="plan-details">
+          <text class="text">本金额：¥{{item.principal}}</text>
+          <text class="text">利息：¥{{item.interest}}</text>
+          <text class="text">剩余本金额：¥{{item.remaining}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="card">
+    <view class="subtitle">⚡ 操作按钮</view>
+    <view class="btn-container">
+      <button class="btn-primary" bindtap="calculateDebt" disabled="{{!canCalculate}}">计算</button>
+      <button class="btn-warning" bindtap="resetForm">重置</button>
+      <button class="btn-danger" bindtap="shareResult" disabled="{{!showResult}}">分享结果</button>
+    </view>
+  </view>
+</view>

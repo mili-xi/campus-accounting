@@ -1,0 +1,227 @@
+/* 页面整体样式 */
+.container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 标题样式 */
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+/* 副标题样式 */
+.subtitle {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #1976D2;
+  margin-bottom: 15rpx;
+  border-bottom: 2rpx solid #1976D2;
+  padding-bottom: 10rpx;
+}
+
+/* 文本样式 */
+.text {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.6;
+}
+
+/* 介绍样式 */
+.intro {
+  margin-bottom: 30rpx;
+}
+
+/* 债务信息样式 */
+.debt-info {
+  margin-top: 20rpx;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.info-item .text {
+  min-width: 160rpx;
+}
+
+.input {
+  flex: 1;
+  padding: 15rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
+
+/* 还款计划样式 */
+.repayment-plan {
+  margin-top: 20rpx;
+}
+
+.plan-summary {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background-color: #e7f3ff;
+  border-radius: 12rpx;
+  border-left: 6rpx solid #1976D2;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.result-text {
+  color: #1976D2;
+  font-weight: bold;
+}
+
+.plan-details {
+  max-height: 600rpx;
+  overflow-y: auto;
+}
+
+.plan-item {
+  padding: 20rpx;
+  background-color: #f8f9fa;
+  border-radius: 12rpx;
+  margin-bottom: 15rpx;
+}
+
+.plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.plan-header .text {
+  font-weight: bold;
+  color: #333333;
+}
+
+.plan-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26rpx;
+}
+
+.plan-details .text {
+  color: #666666;
+}
+
+/* 优化建议样式 */
+.suggestions {
+  margin-top: 20rpx;
+}
+
+.suggestion-item {
+  padding: 20rpx;
+  background-color: #f8f9fa;
+  border-radius: 12rpx;
+  margin-bottom: 15rpx;
+  border-left: 6rpx solid #1976D2;
+}
+
+.suggestion-item .text {
+  color: #0c5460;
+  line-height: 1.5;
+}
+
+/* 操作按钮样式 */
+.btn-container {
+  display: flex;
+  gap: 15rpx;
+  margin-top: 20rpx;
+}
+
+.btn-primary,
+.btn-warning,
+.btn-danger {
+  flex: 1;
+  padding: 25rpx;
+  font-size: 30rpx;
+  border-radius: 12rpx;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:active,
+.btn-warning:active,
+.btn-danger:active {
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled,
+.btn-warning:disabled,
+.btn-danger:disabled {
+  opacity: 0.6;
+  transform: none;
+}
+
+/* 响应式设置计 */
+@media screen and (max-width: 750rpx) {
+  .container {
+    padding: 15rpx;
+  }
+  
+  .card {
+    padding: 25rpx;
+  }
+  
+  .title {
+    font-size: 36rpx;
+  }
+  
+  .subtitle {
+    font-size: 28rpx;
+  }
+  
+  .text {
+    font-size: 26rpx;
+  }
+  
+  .info-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .info-item .text {
+    min-width: auto;
+    margin-bottom: 10rpx;
+  }
+  
+  .input {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .plan-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

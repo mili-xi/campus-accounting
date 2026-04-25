@@ -1,0 +1,67 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="title">知识中心</view>
+  
+  <!-- 知识分类 -->
+  <view class="card">
+    <view class="category-section">
+      <view class="category-title">知识分类</view>
+      <view class="category-list">
+        <view class="category-item" bindtap="viewLegalKnowledge">
+          <view class="category-icon">⚖️</view>
+          <view class="category-name">法律知识</view>
+        </view>
+        <view class="category-item" bindtap="viewFinancialKnowledge">
+          <view class="category-icon">💰</view>
+          <view class="category-name">财务知识</view>
+        </view>
+        <view class="category-item" bindtap="viewFAQ">
+          <view class="category-icon">📚</view>
+          <view class="category-name">常见问题</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 热门话题 -->
+  <view class="card">
+    <view class="hot-topics">
+      <view class="topic-title">热门话题</view>
+      <view class="topic-list">
+        <view class="topic-item" bindtap="viewTopic" data-topic="{{item}}" wx:for="{{hotTopics}}" wx:key="index">
+          <view class="topic-name">{{item.name}}</view>
+          <view class="topic-hits">{{item.hits}} 浏览</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 最新文章 -->
+  <view class="card">
+    <view class="latest-articles">
+      <view class="article-title">最新文章</view>
+      <view class="article-list">
+        <view class="article-item" bindtap="viewArticle" data-article="{{item}}" wx:for="{{latestArticles}}" wx:key="index">
+          <view class="article-info">
+            <view class="article-title-text">{{item.title}}</view>
+            <view class="article-meta">
+              <text class="article-date">{{item.date}}</text>
+              <text class="article-views">{{item.views}} 阅读</text>
+            </view>
+          </view>
+          <view class="article-icon">→</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 搜索功能 -->
+  <view class="card">
+    <view class="search-section">
+      <view class="search-box">
+        <input class="search-input" placeholder="搜索知识内容" value="{{searchText}}" bindinput="onSearchInput" />
+        <button class="search-btn" bindtap="performSearch">搜索</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,84 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="title">储蓄目标</view>
+  
+  <!-- 目标概况 -->
+  <view class="card">
+    <view class="goals-overview">
+      <view class="overview-title">目标概况</view>
+      <view class="overview-content">
+        <view class="overview-item">
+          <text class="label">已完成目标：</text>
+          <text class="value">{{completedGoals}}个</text>
+        </view>
+        <view class="overview-item">
+          <text class="label">进行中目标：</text>
+          <text class="value">{{inProgressGoals}}个</text>
+        </view>
+        <view class="overview-item">
+          <text class="label">未开始目标：</text>
+          <text class="value">{{notStartedGoals}}个</text>
+        </view>
+        <view class="overview-item">
+          <text class="label">总目标数：</text>
+          <text class="value">{{totalGoals}}个</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 目标列表 -->
+  <view class="card">
+    <view class="goals-list-section">
+      <view class="list-title">目标列表</view>
+      <view class="goals-list">
+        <view class="goal-item" wx:for="{{savingsGoals}}" wx:key="index">
+          <view class="goal-info">
+            <view class="goal-name">{{item.name}}</view>
+            <view class="goal-status">{{item.status}}</view>
+            <view class="goal-desc">{{item.description}}</view>
+          </view>
+          <view class="goal-progress">
+            <view class="progress-bar">
+              <view class="progress-fill" style="width: {{item.progress}}%;"></view>
+            </view>
+            <view class="progress-text">{{item.progress}}%</view>
+          </view>
+          <view class="goal-actions">
+            <button class="btn-detail" bindtap="viewGoalDetail" data-index="{{index}}">详情</button>
+            <button class="btn-edit" bindtap="editGoal" data-index="{{index}}">编辑</button>
+            <button class="btn-delete" bindtap="deleteGoal" data-index="{{index}}">删除</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 添加目标 -->
+  <view class="card">
+    <view class="add-goal-section">
+      <view class="section-title">添加目标</view>
+      <form class="goal-form" bindsubmit="submitGoal">
+        <view class="form-item">
+          <label class="form-label">目标名称：</label>
+          <input class="form-input" name="name" placeholder="请输入目标名称" required />
+        </view>
+        <view class="form-item">
+          <label class="form-label">目标描述：</label>
+          <textarea class="form-textarea" name="description" placeholder="请输入目标描述" required />
+        </view>
+        <view class="form-item">
+          <label class="form-label">目标金额：</label>
+          <input class="form-input" name="amount" placeholder="请输入目标金额" type="number" required />
+        </view>
+        <view class="form-item">
+          <label class="form-label">目标期限：</label>
+          <picker class="form-picker" mode="date" name="deadline" bindchange="onDeadlineChange">
+            <view class="picker-text">{{selectedDeadline || '请选择目标期限'}}</view>
+          </picker>
+        </view>
+        <button class="submit-btn" formType="submit">提交目标</button>
+      </form>
+    </view>
+  </view>
+</view>

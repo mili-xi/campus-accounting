@@ -1,0 +1,235 @@
+/* 整体容器 */
+.container {
+  padding: 20rpx;
+  background-color: #F5F5F5;
+  min-height: 100vh;
+}
+
+/* 顶部标题 */
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+/* 副标题 */
+.subtitle {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #1976D2;
+  margin-bottom: 15rpx;
+  border-bottom: 2rpx solid #1976D2;
+  padding-bottom: 10rpx;
+}
+
+/* 财务概览 */
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.overview-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.overview-item:last-child {
+  border-bottom: none;
+}
+
+/* 图表卡片 */
+.chart-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400rpx;
+}
+
+.semi-donut-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.chart-center-text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.chart-center-amount {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #F44336;
+}
+
+/* 分类卡片 */
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+}
+
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #F8F8F8;
+  border-radius: 12rpx;
+  transition: background-color 0.3s ease;
+}
+
+.category-item:active {
+  background-color: #F0F0F0;
+}
+
+.category-info {
+  display: flex;
+  align-items: center;
+  gap: 15rpx;
+}
+
+.category-dot {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+}
+
+.category-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-name {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.category-percentage {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.category-amount {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 进度条 */
+.progress-container {
+  width: 100%;
+  height: 10rpx;
+  background-color: #f0f0f0;
+  border-radius: 5rpx;
+  margin: 10rpx 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 5rpx;
+  transition: width 0.3s ease;
+}
+
+/* 预算执行 */
+.budget-execution {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.budget-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.budget-item:last-child {
+  border-bottom: none;
+}
+
+/* 消费建议 */
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.suggestion-item {
+  padding: 15rpx;
+  background-color: #F8F8F8;
+  border-radius: 8rpx;
+  border-left: 5rpx solid #FFC107;
+}
+
+/* 导出按钮 */
+.export-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+  margin-top: 20rpx;
+}
+
+.export-buttons .btn-primary,
+.export-buttons .btn-warning,
+.export-buttons .btn-danger {
+  width: 100%;
+  padding: 25rpx;
+  font-size: 30rpx;
+  border-radius: 12rpx;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.export-buttons .btn-primary:active,
+.export-buttons .btn-warning:active,
+.export-buttons .btn-danger:active {
+  transform: scale(0.98);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 750rpx) {
+  .container {
+    padding: 10rpx;
+  }
+
+  .chart-container {
+    height: 300rpx;
+  }
+
+  .chart-center-text {
+    font-size: 32rpx;
+  }
+
+  .chart-center-amount {
+    font-size: 24rpx;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-item,
+  .budget-item {
+    padding: 10rpx 0;
+  }
+}

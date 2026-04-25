@@ -1,0 +1,71 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="title">评分详情</view>
+  
+  <!-- 评分信息 -->
+  <view class="card">
+    <view class="score-section">
+      <view class="score-info">
+        <view class="score-value">{{score}}</view>
+        <view class="score-label">{{scoreLabel}}</view>
+      </view>
+      <view class="score-bar">
+        <view class="score-progress" style="width: {{scorePercent}}%;"></view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 评分构成 -->
+  <view class="card">
+    <view class="components-section">
+      <view class="components-title">评分构成</view>
+      <view class="component-list">
+        <view class="component-item" wx:for="{{scoreComponents}}" wx:key="index">
+          <view class="component-info">
+            <view class="component-name">{{item.name}}</view>
+            <view class="component-score">{{item.score}}分</view>
+          </view>
+          <view class="component-progress">
+            <view class="progress-bar">
+              <view class="progress-fill" style="width: {{item.percent}}%;"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 评分建议 -->
+  <view class="card">
+    <view class="suggestions-section">
+      <view class="suggestions-title">提升建议</view>
+      <view class="suggestions-list">
+        <view class="suggestion-item" wx:for="{{suggestions}}" wx:key="index">
+          {{item}}
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 评分历史 -->
+  <view class="card">
+    <view class="history-section">
+      <view class="history-title">评分历史</view>
+      <view class="history-chart">
+        <view class="chart-placeholder">评分历史图表</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 相关操作 -->
+  <view class="card">
+    <view class="actions-section">
+      <view class="actions-title">相关操作</view>
+      <view class="action-list">
+        <view class="action-item" bindtap="viewReport">查看详细报告</view>
+        <view class="action-item" bindtap="shareResult">分享评分结果</view>
+        <view class="action-item" bindtap="recheck">重新评估</view>
+      </view>
+    </view>
+  </view>
+</view>

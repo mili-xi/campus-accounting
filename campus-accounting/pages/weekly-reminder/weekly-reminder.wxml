@@ -1,0 +1,94 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="title">每周提醒</view>
+  
+  <!-- 本周提醒 -->
+  <view class="card">
+    <view class="week-reminder">
+      <view class="reminder-title">本周提醒</view>
+      <view class="reminder-list">
+        <view class="reminder-item" wx:for="{{weekReminders}}" wx:key="index">
+          <view class="reminder-content">
+            <view class="reminder-title-text">{{item.title}}</view>
+            <view class="reminder-description">{{item.description}}</view>
+            <view class="reminder-date">{{item.date}}</view>
+          </view>
+          <view class="reminder-action" bindtap="markAsCompleted" data-index="{{index}}">
+            {{item.completed ? '已完成' : '标记完成'}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 下周提醒 -->
+  <view class="card">
+    <view class="next-week-reminder">
+      <view class="reminder-title">下周提醒</view>
+      <view class="reminder-list">
+        <view class="reminder-item" wx:for="{{nextWeekReminders}}" wx:key="index">
+          <view class="reminder-content">
+            <view class="reminder-title-text">{{item.title}}</view>
+            <view class="reminder-description">{{item.description}}</view>
+            <view class="reminder-date">{{item.date}}</view>
+          </view>
+          <view class="reminder-action">
+            查看详情
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 周度总结 -->
+  <view class="card">
+    <view class="weekly-summary">
+      <view class="summary-title">周度总结</view>
+      <view class="summary-content">
+        <view class="summary-item">
+          <text class="label">本周支出：</text>
+          <text class="value">{{weeklyExpense}}元</text>
+        </view>
+        <view class="summary-item">
+          <text class="label">本周收入：</text>
+          <text class="value">{{weeklyIncome}}元</text>
+        </view>
+        <view class="summary-item">
+          <text class="label">本周结余：</text>
+          <text class="value">{{weeklyBalance}}元</text>
+        </view>
+        <view class="summary-item">
+          <text class="label">预算使用：</text>
+          <text class="value">{{budgetUsage}}%</text>
+        </view>
+      </view>
+      <view class="summary-action" bindtap="viewDetail">
+        查看详情
+      </view>
+    </view>
+  </view>
+  
+  <!-- 添加提醒 -->
+  <view class="card">
+    <view class="add-reminder">
+      <view class="add-title">添加提醒</view>
+      <form class="reminder-form" bindsubmit="submitReminder">
+        <view class="form-item">
+          <label class="form-label">提醒标题：</label>
+          <input class="form-input" name="title" placeholder="请输入提醒标题" required />
+        </view>
+        <view class="form-item">
+          <label class="form-label">提醒描述：</label>
+          <textarea class="form-textarea" name="description" placeholder="请输入提醒描述" required />
+        </view>
+        <view class="form-item">
+          <label class="form-label">提醒日期：</label>
+          <picker class="form-picker" mode="date" name="date" bindchange="onDateChange">
+            <view class="picker-text">{{selectedDate || '请选择提醒日期'}}</view>
+          </picker>
+        </view>
+        <button class="submit-btn" formType="submit">添加提醒</button>
+      </form>
+    </view>
+  </view>
+</view>

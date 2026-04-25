@@ -1,0 +1,34 @@
+/* 创新功能入口样式 */
+.innovation-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+  margin-top: 20rpx;
+}
+
+.innovation-actions .btn-primary,
+.innovation-actions .btn-warning,
+.innovation-actions .btn-danger {
+  width: 100%;
+  padding: 25rpx;
+  font-size: 30rpx;
+  border-radius: 12rpx;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.innovation-actions .btn-primary:active,
+.innovation-actions .btn-warning:active,
+.innovation-actions .btn-danger:active {
+  transform: scale(0.98);
+}
+
+/* 响应式设置计 */
+@media screen and (max-width: 750rpx) {
+  .innovation-actions .btn-primary,
+  .innovation-actions .btn-warning,
+  .innovation-actions .btn-danger {
+    padding: 20rpx;
+    font-size: 28rpx;
+  }
+}

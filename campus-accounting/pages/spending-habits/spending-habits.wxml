@@ -1,0 +1,155 @@
+﻿<view class="container">
+  <view class="card">
+    <view class="title">🎯 消费习惯分析</view>
+    <view class="intro">
+      <text class="text">我们的消费习惯分析系统可以帮助您了解自己的消费行为，识别不良消费习惯，培养健康的消费理念。</text>
+    </view>
+  </view>
+
+  <!-- 消费习惯评分 -->
+  <view class="card score-card">
+    <view class="subtitle">🏆 您的消费习惯评分</view>
+    <view class="score-display">
+      <view class="score-circle">
+        <text class="score-text">{{habitScore}}</text>
+        <text class="score-label">分</text>
+      </view>
+    </view>
+    <view class="score-description">
+      <text class="text">{{scoreDescription}}</text>
+    </view>
+    <view class="score-suggestion">
+      <text class="text">{{scoreSuggestion}}</text>
+    </view>
+    <button class="btn-primary" bindtap="viewScoreDetails">查看评分详情</button>
+  </view>
+
+  <!-- 消费行为分析 -->
+  <view class="card">
+    <view class="subtitle">📊 消费行为分析</view>
+    <view class="behavior-analysis">
+      <view class="analysis-item">
+        <text class="text">消费频率: </text>
+        <text class="amount">{{consumptionFrequency}}</text>
+      </view>
+      <view class="analysis-item">
+        <text class="text">平均消费金额: </text>
+        <text class="amount amount-expense">¥{{averageAmount}}</text>
+      </view>
+      <view class="analysis-item">
+        <text class="text">大额消费次数: </text>
+        <text class="amount">{{largeExpenseCount}}次</text>
+      </view>
+      <view class="analysis-item">
+        <text class="text">冲动消费次数: </text>
+        <text class="amount">{{impulsiveCount}}次</text>
+      </view>
+      <view class="analysis-item">
+        <text class="text">消费时间偏好: </text>
+        <text class="amount">{{timePreference}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 消费习惯类型 -->
+  <view class="card">
+    <view class="subtitle">🎭 消费习惯类型</view>
+    <view class="habit-type">
+      <view class="type-card {{habitType === '理性型' ? 'active' : ''}}">
+        <view class="type-icon">🧠</view>
+        <view class="type-name">理性型</view>
+        <view class="type-description">
+          <text class="text">{{habitTypeDescription}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 消费优势 -->
+  <view class="card">
+    <view class="subtitle">✅ 您的消费优势</view>
+    <view class="advantages">
+      <view class="advantage-item" wx:for="{{advantages}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 消费劣势 -->
+  <view class="card warning-card">
+    <view class="subtitle">❌ 需要改进的地方</view>
+    <view class="disadvantages">
+      <view class="disadvantage-item" wx:for="{{disadvantages}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 消费习惯改善计划 -->
+  <view class="card">
+    <view class="subtitle">📋 消费习惯改善计划</view>
+    <view class="improvement-plan">
+      <view class="plan-item" wx:for="{{improvementPlan}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+    <button class="btn-warning" bindtap="startImprovementPlan">开始改善计划</button>
+  </view>
+
+  <!-- 消费习惯培养建议 -->
+  <view class="card">
+    <view class="subtitle">💡 消费习惯培养建议</view>
+    <view class="habit-suggestions">
+      <view class="suggestion-item" wx:for="{{habitSuggestions}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 消费习惯测试 -->
+  <view class="card">
+    <view class="subtitle">🎯 消费习惯测试</view>
+    <text class="text">通过简单的测试，了解自己的消费习惯类型和需要改进的地方。</text>
+    <button class="btn-primary" bindtap="startHabitTest">开始测试</button>
+  </view>
+
+  <!-- 成功案例 -->
+  <view class="card">
+    <view class="subtitle">🏆 成功案例</view>
+    <text class="text">看看其他同学是如何改善消费习惯，提高财务健康度的。</text>
+    <button class="btn-warning" bindtap="viewSuccessStories">查看成功案例</button>
+  </view>
+
+  <!-- 学习资源 -->
+  <view class="card">
+    <view class="subtitle">📚 学习资源</view>
+    <text class="text">学习更多关于消费心理学和理财知识的内容，帮助您培养健康的消费习惯。</text>
+    <view class="learning-resources">
+      <button class="btn-primary" bindtap="viewArticles">阅读文章</button>
+      <button class="btn-warning" bindtap="viewVideos">观看视频</button>
+      <button class="btn-danger" bindtap="viewCourses">在线课程</button>
+    </view>
+  </view>
+
+  <!-- 定期提醒 -->
+  <view class="card">
+    <view class="subtitle">⏰ 定期提醒</view>
+    <text class="text">设置定期提醒，帮助您养成功良好的消费习惯。</text>
+    <view class="reminder-settings">
+      <button class="btn-primary" bindtap="setDailyReminder">每日提醒</button>
+      <button class="btn-warning" bindtap="setWeeklyReminder">每周提醒</button>
+      <button class="btn-danger" bindtap="setMonthlyReminder">每月提醒</button>
+    </view>
+  </view>
+
+  <!-- 总结 -->
+  <view class="card">
+    <view class="title">📌 总结</view>
+    <text class="text">培养健康的消费习惯是财务自由的基础。通过我们的消费习惯分析系统，您可以了解自己的消费行为，识别不良消费习惯，制定改善计划，逐步提高财务健康度。</text>
+    <view class="footer">
+      <text class="text">记录住，改变消费习惯需要时间和耐心，但只要坚持下去，您一定会看到显著的改善。</text>
+    </view>
+  </view>
+
+  <button class="btn-primary finish-btn" bindtap="finishReading">我已阅读并理解</button>
+</view>

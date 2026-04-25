@@ -1,0 +1,74 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="title">更多建议</view>
+  
+  <!-- 建议分类 -->
+  <view class="card">
+    <view class="categories-section">
+      <view class="section-title">建议分类</view>
+      <view class="categories-list">
+        <view class="category-item" wx:for="{{suggestionCategories}}" wx:key="index" bindtap="openCategory" data-index="{{index}}">
+          <view class="category-icon">{{item.icon}}</view>
+          <view class="category-info">
+            <view class="category-name">{{item.name}}</view>
+            <view class="category-desc">{{item.description}}</view>
+          </view>
+          <view class="category-arrow">→</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 热门建议 -->
+  <view class="card">
+    <view class="suggestions-section">
+      <view class="section-title">热门建议</view>
+      <view class="suggestions-list">
+        <view class="suggestion-item" wx:for="{{popularSuggestions}}" wx:key="index" bindtap="openSuggestion" data-index="{{index}}">
+          <view class="suggestion-icon">{{item.icon}}</view>
+          <view class="suggestion-info">
+            <view class="suggestion-name">{{item.name}}</view>
+            <view class="suggestion-desc">{{item.description}}</view>
+            <view class="suggestion-meta">
+              <text class="suggestion-type">{{item.type}}</text>
+              <text class="suggestion-rating">{{item.rating}}分</text>
+              <text class="suggestion-users">{{item.users}}人使用</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 最新建议 -->
+  <view class="card">
+    <view class="new-suggestions-section">
+      <view class="section-title">最新建议</view>
+      <view class="new-suggestions-list">
+        <view class="new-suggestion-item" wx:for="{{newSuggestions}}" wx:key="index" bindtap="openNewSuggestion" data-index="{{index}}">
+          <view class="new-suggestion-icon">{{item.icon}}</view>
+          <view class="new-suggestion-info">
+            <view class="new-suggestion-name">{{item.name}}</view>
+            <view class="new-suggestion-desc">{{item.description}}</view>
+            <view class="new-suggestion-meta">
+              <text class="new-suggestion-type">{{item.type}}</text>
+              <text class="new-suggestion-rating">{{item.rating}}分</text>
+              <text class="new-suggestion-users">{{item.users}}人使用</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 搜索建议 -->
+  <view class="card">
+    <view class="search-section">
+      <view class="section-title">搜索建议</view>
+      <view class="search-box">
+        <input class="search-input" placeholder="搜索建议" value="{{searchText}}" bindinput="onSearchInput" />
+        <button class="search-btn" bindtap="searchSuggestions">搜索</button>
+      </view>
+    </view>
+  </view>
+</view>

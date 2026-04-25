@@ -1,0 +1,401 @@
+/* 页面整体样式 */
+.container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 评分卡片特殊样式 */
+.score-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+/* 标题样式 */
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.score-card .title {
+  color: #fff;
+}
+
+/* 副标题样式 */
+.subtitle {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1976D2;
+  margin-bottom: 20rpx;
+  border-bottom: 2rpx solid #1976D2;
+  padding-bottom: 10rpx;
+}
+
+/* 正文样式 */
+.text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+  display: block;
+  margin-bottom: 15rpx;
+}
+
+.score-card .text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 报告日期样式 */
+.report-date {
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.report-date .text {
+  color: #666;
+  font-size: 26rpx;
+}
+
+/* 评分显示样式 */
+.score-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40rpx 0;
+}
+
+.score-circle {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.score-text {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 10rpx;
+}
+
+/* 评分描述样式 */
+.score-description {
+  margin-bottom: 20rpx;
+}
+
+.score-suggestion {
+  margin-bottom: 30rpx;
+}
+
+/* 财务概览样式 */
+.overview {
+  margin-top: 20rpx;
+}
+
+.overview-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.overview-item:last-child {
+  border-bottom: none;
+}
+
+.overview-item .text {
+  margin: 0;
+  color: #333;
+}
+
+/* 金额样式 */
+.amount {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.amount-income {
+  color: #28a745;
+}
+
+.amount-expense {
+  color: #dc3545;
+}
+
+/* 消费分类分析样式 */
+.category-analysis {
+  margin-top: 20rpx;
+}
+
+.category-item {
+  margin-bottom: 25rpx;
+}
+
+.category-item .text {
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.category-bar {
+  height: 20rpx;
+  background-color: #f0f0f0;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1976D2 0%, #2196F3 100%);
+  border-radius: 10rpx;
+  transition: width 0.5s ease;
+}
+
+/* 预算执行情况样式 */
+.budget-execution {
+  margin-top: 20rpx;
+}
+
+.budget-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.budget-item:last-child {
+  border-bottom: none;
+}
+
+.budget-item .text {
+  margin: 0;
+  color: #333;
+}
+
+/* 进度条样式 */
+.progress-container {
+  width: 200rpx;
+  height: 15rpx;
+  background-color: #f0f0f0;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #28a745 0%, #28a745 100%);
+  border-radius: 8rpx;
+  transition: width 0.5s ease;
+}
+
+/* 消费趋势分析样式 */
+.trend-analysis {
+  margin-top: 20rpx;
+}
+
+.trend-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.trend-item:last-child {
+  border-bottom: none;
+}
+
+.trend-item .text {
+  margin: 0;
+  color: #333;
+}
+
+/* 风险识别样式 */
+.warning-card {
+  background-color: #fff3cd;
+  border-left: 8rpx solid #ffc107;
+}
+
+.warning-card .title {
+  color: #856404;
+}
+
+.warning-list {
+  margin-top: 20rpx;
+}
+
+.warning-item {
+  padding: 15rpx;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+}
+
+.warning-item .text {
+  color: #856404;
+  margin: 0;
+}
+
+/* 省钱建议样式 */
+.suggestions {
+  margin-top: 20rpx;
+}
+
+.suggestion-item {
+  padding: 15rpx;
+  background-color: #f8f9fa;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+}
+
+.suggestion-item .text {
+  color: #333;
+  margin: 0;
+}
+
+/* 消费习惯改善建议样式 */
+.habit-suggestions {
+  margin-top: 20rpx;
+}
+
+.habit-item {
+  padding: 15rpx;
+  background-color: #e7f3ff;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+  border-left: 6rpx solid #1976D2;
+}
+
+.habit-item .text {
+  color: #0c5460;
+  margin: 0;
+}
+
+/* 分享按钮样式 */
+.share-buttons {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.export-buttons {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+/* 按钮样式 */
+.btn-primary {
+  width: 100%;
+  background-color: #1976D2;
+  color: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.btn-warning {
+  width: 100%;
+  background-color: #ffc107;
+  color: #000;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.btn-danger {
+  width: 100%;
+  background-color: #dc3545;
+  color: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.btn-primary:active,
+.btn-warning:active,
+.btn-danger:active {
+  transform: scale(0.98);
+}
+
+/* 完成功按钮样式 */
+.finish-btn {
+  margin-top: 40rpx;
+  margin-bottom: 60rpx;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* 响应式设置计 */
+@media screen and (max-width: 750rpx) {
+  .container {
+    padding: 15rpx;
+  }
+  
+  .card {
+    padding: 25rpx;
+  }
+  
+  .title {
+    font-size: 36rpx;
+  }
+  
+  .subtitle {
+    font-size: 28rpx;
+  }
+  
+  .text {
+    font-size: 26rpx;
+  }
+  
+  .score-circle {
+    width: 160rpx;
+    height: 160rpx;
+  }
+  
+  .score-text {
+    font-size: 48rpx;
+  }
+}

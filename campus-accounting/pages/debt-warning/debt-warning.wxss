@@ -1,0 +1,341 @@
+/* 页面整体样式 */
+.container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 标题样式 */
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+/* 副标题样式 */
+.subtitle {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1976D2;
+  margin-bottom: 20rpx;
+  border-bottom: 2rpx solid #1976D2;
+  padding-bottom: 10rpx;
+}
+
+/* 正文样式 */
+.text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+  display: block;
+  margin-bottom: 15rpx;
+}
+
+/* 介绍样式 */
+.intro {
+  margin-bottom: 30rpx;
+}
+
+/* 风险评估样式 */
+.risk-assessment {
+  margin-top: 20rpx;
+}
+
+.risk-score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.risk-level {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.risk-description {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background-color: #f8f9fa;
+  border-radius: 12rpx;
+}
+
+/* 评分样式 */
+.score {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.score-high {
+  color: #dc3545;
+}
+
+.score-medium {
+  color: #ffc107;
+}
+
+.score-low {
+  color: #28a745;
+}
+
+/* 风险等级样式 */
+.level {
+  font-size: 30rpx;
+  font-weight: bold;
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.level-high {
+  color: #fff;
+  background-color: #dc3545;
+}
+
+.level-medium {
+  color: #000;
+  background-color: #ffc107;
+}
+
+.level-low {
+  color: #fff;
+  background-color: #28a745;
+}
+
+/* 债务分析样式 */
+.debt-analysis {
+  margin-top: 20rpx;
+}
+
+.analysis-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.analysis-item:last-child {
+  border-bottom: none;
+}
+
+/* 金额样式 */
+.amount {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.amount-income {
+  color: #28a745;
+}
+
+.amount-expense {
+  color: #dc3545;
+}
+
+/* 预警规则样式 */
+.warning-rules {
+  margin-top: 20rpx;
+}
+
+.rule-item {
+  padding: 15rpx;
+  background-color: #f8f9fa;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+}
+
+.rule-item .text {
+  color: #333;
+  margin: 0;
+}
+
+/* 预警记录样式 */
+.warning-records {
+  margin-top: 20rpx;
+}
+
+.record-item {
+  margin-bottom: 25rpx;
+  padding: 20rpx;
+  background-color: #f8f9fa;
+  border-radius: 12rpx;
+  border-left: 8rpx solid #1976D2;
+}
+
+.record-time {
+  margin-bottom: 10rpx;
+}
+
+.record-content {
+  margin-bottom: 10rpx;
+}
+
+.record-level {
+  display: inline-block;
+  padding: 5rpx 12rpx;
+  border-radius: 15rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.record-level.level-high {
+  color: #fff;
+  background-color: #dc3545;
+}
+
+.record-level.level-medium {
+  color: #000;
+  background-color: #ffc107;
+}
+
+.record-level.level-low {
+  color: #fff;
+  background-color: #28a745;
+}
+
+/* 风险预防建议样式 */
+.prevention-suggestions {
+  margin-top: 20rpx;
+}
+
+.suggestion-item {
+  padding: 15rpx;
+  background-color: #e7f3ff;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+  border-left: 6rpx solid #1976D2;
+}
+
+.suggestion-item .text {
+  color: #0c5460;
+  margin: 0;
+}
+
+/* 债务管理工具样式 */
+.debt-tools {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+/* 紧急联系样式 */
+.contact-info {
+  margin-top: 20rpx;
+}
+
+.contact-item {
+  padding: 15rpx;
+  background-color: #f8f9fa;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+}
+
+.contact-item .text {
+  color: #333;
+  margin: 0;
+}
+
+/* 按钮样式 */
+.btn-primary {
+  width: 100%;
+  background-color: #1976D2;
+  color: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.btn-warning {
+  width: 100%;
+  background-color: #ffc107;
+  color: #000;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.btn-danger {
+  width: 100%;
+  background-color: #dc3545;
+  color: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.btn-primary:active,
+.btn-warning:active,
+.btn-danger:active {
+  transform: scale(0.98);
+}
+
+/* 完成功按钮样式 */
+.finish-btn {
+  margin-top: 40rpx;
+  margin-bottom: 60rpx;
+}
+
+/* 页脚样式 */
+.footer {
+  margin-top: 30rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #e9ecef;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* 响应式设置计 */
+@media screen and (max-width: 750rpx) {
+  .container {
+    padding: 15rpx;
+  }
+  
+  .card {
+    padding: 25rpx;
+  }
+  
+  .title {
+    font-size: 36rpx;
+  }
+  
+  .subtitle {
+    font-size: 28rpx;
+  }
+  
+  .text {
+    font-size: 26rpx;
+  }
+}

@@ -1,0 +1,120 @@
+/* pages/financial-tools/financial-tools.wxss */
+
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+}
+
+.tools-section,
+.calculators-section,
+.budget-tools-section,
+.investment-tools-section {
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 25rpx;
+  border-bottom: 2rpx solid #e0e0e0;
+  padding-bottom: 10rpx;
+}
+
+.tools-list,
+.calculators-list,
+.budget-tools-list,
+.investment-tools-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.tool-item,
+.calculator-item,
+.budget-tool-item,
+.investment-tool-item {
+  padding: 20rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tool-item:active,
+.calculator-item:active,
+.budget-tool-item:active,
+.investment-tool-item:active {
+  background-color: #e3f2fd;
+  border-color: #1976D2;
+  color: #1976D2;
+}
+
+.tool-icon,
+.calculator-icon,
+.budget-tool-icon,
+.investment-tool-icon {
+  font-size: 40rpx;
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+}
+
+.tool-info,
+.calculator-info,
+.budget-tool-info,
+.investment-tool-info {
+  flex: 1;
+}
+
+.tool-name,
+.calculator-name,
+.budget-tool-name,
+.investment-tool-name {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.tool-desc,
+.calculator-desc,
+.budget-tool-desc,
+.investment-tool-desc {
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.4;
+}
+
+.tool-arrow,
+.calculator-arrow,
+.budget-tool-arrow,
+.investment-tool-arrow {
+  font-size: 32rpx;
+  color: #666666;
+}

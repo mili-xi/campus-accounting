@@ -1,0 +1,81 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/add-record/add-record",
+    "pages/records/records",
+    "pages/analysis/analysis",
+    "pages/help/help",
+    "pages/guide/guide",
+    "pages/risk-consequence/risk-consequence",
+    "pages/monthly-report/monthly-report",
+    "pages/debt-warning/debt-warning",
+    "pages/spending-habits/spending-habits",
+    "pages/smart-suggestion/smart-suggestion",
+    "pages/quiz/quiz",
+    "pages/assessment/assessment",
+    "pages/risk-details/risk-details",
+    "pages/warning-records/warning-records",
+    "pages/debt-calculator/debt-calculator",
+    "pages/repayment-plan/repayment-plan",
+    "pages/debt-consolidation/debt-consolidation",
+    "pages/contact/contact",
+    "pages/risk-test/risk-test",
+    "pages/knowledge-center/knowledge-center",
+    "pages/score-details/score-details",
+    "pages/improvement-plan/improvement-plan",
+    "pages/habit-test/habit-test",
+    "pages/success-stories/success-stories",
+    "pages/articles/articles",
+    "pages/videos/videos",
+    "pages/courses/courses",
+    "pages/daily-reminder/daily-reminder",
+    "pages/weekly-reminder/weekly-reminder",
+    "pages/monthly-reminder/monthly-reminder",
+    "pages/more-suggestions/more-suggestions",
+    "pages/expense-optimization/expense-optimization",
+    "pages/savings-goals/savings-goals",
+    "pages/investment-options/investment-options",
+    "pages/financial-goals/financial-goals",
+    "pages/budget-optimization/budget-optimization",
+    "pages/learning-center/learning-center",
+    "pages/financial-tools/financial-tools",
+    "pages/consultation/consultation"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1976D2",
+    "navigationBarTitleText": "校园记账",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f5f5"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#1976D2",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/records/records",
+        "text": "记录"
+      },
+      {
+        "pagePath": "pages/analysis/analysis",
+        "text": "分析"
+      },
+      {
+        "pagePath": "pages/help/help",
+        "text": "帮助"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

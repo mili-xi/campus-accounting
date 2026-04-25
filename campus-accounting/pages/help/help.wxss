@@ -1,0 +1,206 @@
+/* 帮助页面样式 */
+
+.container {
+  padding: 20rpx;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.card {
+  background-color: white;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  background-color: #f5f5f5;
+}
+
+.section {
+  padding: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 8rpx;
+  height: 28rpx;
+  background-color: #007aff;
+  border-radius: 4rpx;
+  margin-right: 16rpx;
+}
+
+.content {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.help-list {
+  margin-top: 20rpx;
+}
+
+.help-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.help-item:last-child {
+  border-bottom: none;
+}
+
+.help-icon {
+  font-size: 48rpx;
+  margin-right: 24rpx;
+  width: 60rpx;
+  text-align: center;
+}
+
+.help-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.help-content text {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.help-input {
+  padding: 20rpx 20rpx;
+  border: 1rpx solid #e0e0e0;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  line-height: 1.4;
+  margin-top: 10rpx;
+  width: 100%;
+  box-sizing: border-box;
+  height: 80rpx;
+}
+
+.help-input::placeholder {
+  color: #999;
+  font-size: 26rpx;
+}
+
+.tips-list {
+  margin-top: 20rpx;
+}
+
+.tips-item {
+  padding: 16rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.risk-list {
+  margin-top: 20rpx;
+}
+
+.risk-item {
+  padding: 16rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.warning-section {
+  background-color: #fff8f8;
+  border-left: 4rpx solid #ff4757;
+}
+
+.warning-list {
+  margin-top: 20rpx;
+}
+
+.warning-item {
+  padding: 16rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.legal-channels {
+  margin-top: 20rpx;
+}
+
+.legal-item {
+  padding: 16rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.legal-info {
+  margin-top: 20rpx;
+}
+
+.quick-actions {
+  margin-top: 20rpx;
+  display: flex;
+  gap: 16rpx;
+  flex-wrap: wrap;
+}
+
+.quick-actions button {
+  flex: 1;
+  min-width: 200rpx;
+  height: 80rpx;
+  font-size: 28rpx;
+}
+
+.quick-actions button::after {
+  border: none;
+}
+
+.quick-actions .btn-primary {
+  background-color: #007aff;
+  color: white;
+  border-radius: 8rpx;
+  font-weight: 500;
+}
+
+.quick-actions .btn-primary:active {
+  background-color: #0051d5;
+}
+
+.quick-actions .btn-warning {
+  background-color: #ff9500;
+  color: white;
+  border-radius: 8rpx;
+  font-weight: 500;
+}
+
+.quick-actions .btn-warning:active {
+  background-color: #e88a00;
+}
+
+/* 响应式设置计 */
+@media screen and (max-width: 400px) {
+  .quick-actions button {
+    min-width: 160rpx;
+    height: 70rpx;
+    font-size: 26rpx;
+  }
+}

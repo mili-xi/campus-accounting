@@ -1,0 +1,225 @@
+/* pages/improvement-plan/improvement-plan.wxss */
+
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+}
+
+.current-status {
+  margin-bottom: 30rpx;
+}
+
+.status-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 25rpx;
+}
+
+.status-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.label {
+  font-size: 28rpx;
+  color: #666666;
+  min-width: 120rpx;
+}
+
+.value {
+  font-size: 28rpx;
+  color: #1976D2;
+  font-weight: bold;
+}
+
+.plans-section {
+  margin-bottom: 30rpx;
+}
+
+.plans-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 25rpx;
+}
+
+.plan-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.plan-item {
+  padding: 20rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  background-color: #f9f9f9;
+}
+
+.plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.plan-title {
+  font-size: 28rpx;
+  color: #333333;
+  flex: 1;
+  font-weight: bold;
+}
+
+.plan-progress {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.plan-description {
+  font-size: 28rpx;
+  color: #666666;
+  margin-bottom: 15rpx;
+  line-height: 1.5;
+}
+
+.plan-action {
+  font-size: 28rpx;
+  color: #1976D2;
+  text-align: center;
+  padding: 15rpx;
+  background-color: #e3f2fd;
+  border-radius: 8rpx;
+  cursor: pointer;
+}
+
+.plan-action:active {
+  background-color: #bbdefb;
+}
+
+.tasks-section {
+  margin-bottom: 30rpx;
+}
+
+.tasks-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 25rpx;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  background-color: #f9f9f9;
+}
+
+.task-content {
+  flex: 1;
+}
+
+.task-title {
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 10rpx;
+  font-weight: bold;
+}
+
+.task-description {
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.4;
+}
+
+.task-action {
+  margin-left: 20rpx;
+}
+
+.statistics-section {
+  margin-bottom: 30rpx;
+}
+
+.statistics-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 25rpx;
+}
+
+.statistics-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.stat-item .label {
+  font-size: 28rpx;
+  color: #666666;
+  min-width: 180rpx;
+}
+
+.stat-item .value {
+  font-size: 28rpx;
+  color: #1976D2;
+  font-weight: bold;
+}
+
+.actions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.action-btn {
+  background-color: #1976D2;
+  color: #ffffff;
+  border-radius: 50rpx;
+  padding: 25rpx;
+  font-size: 30rpx;
+  text-align: center;
+  margin: 0;
+}
+
+.action-btn:active {
+  background-color: #1565C0;
+}

@@ -1,0 +1,145 @@
+<view class="container">
+  <!-- 顶部标题 -->
+  <view class="card">
+    <view class="title">📊 财务分析</view>
+    <view class="report-date">
+      <text class="text">{{currentDate}}</text>
+    </view>
+  </view>
+
+  <!-- 财务概览 -->
+  <view class="card">
+    <view class="subtitle">📈 财务概览</view>
+    <view class="overview">
+      <view class="overview-item">
+        <text class="text">总收入: </text>
+        <text class="amount amount-income">¥{{totalIncome}}</text>
+      </view>
+      <view class="overview-item">
+        <text class="text">总支出: </text>
+        <text class="amount amount-expense">¥{{totalExpense}}</text>
+      </view>
+      <view class="overview-item">
+        <text class="text">结余: </text>
+        <text class="amount {{balance > 0 ? 'amount-income' : 'amount-expense'}}">¥{{balance}}</text>
+      </view>
+      <view class="overview-item">
+        <text class="text">支出占比: </text>
+        <text class="amount">{{expenseRatio}}%</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 支出分类图表 -->
+  <view class="card">
+    <view class="subtitle">📊 支出分类</view>
+    <view class="chart-container">
+      <canvas class="semi-donut-chart" id="expenseChart" canvas-id="expenseChart"></canvas>
+      <view class="chart-center">
+        <text class="chart-center-text">总支出</text>
+        <text class="chart-center-amount">¥{{totalExpense}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 支出分类详情 -->
+  <view class="card">
+    <view class="subtitle">📋 支出分类详情</view>
+    <view class="category-grid">
+      <view class="category-item" wx:for="{{expenseCategories}}" wx:key="name">
+        <view class="category-info">
+          <view class="category-dot" style="background-color: {{item.color}};"></view>
+          <view class="category-details">
+            <text class="category-name">{{item.name}}</text>
+            <text class="category-percentage">{{item.percentage}}</text>
+          </view>
+        </view>
+        <text class="category-amount">{{item.amount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 收入分类图表 -->
+  <view class="card">
+    <view class="subtitle">📊 收入分类</view>
+    <view class="chart-container">
+      <canvas class="semi-donut-chart" id="incomeChart" canvas-id="incomeChart"></canvas>
+      <view class="chart-center">
+        <text class="chart-center-text">总收入</text>
+        <text class="chart-center-amount">¥{{totalIncome}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 收入分类详情 -->
+  <view class="card">
+    <view class="subtitle">📋 收入分类详情</view>
+    <view class="category-grid">
+      <view class="category-item" wx:for="{{incomeCategories}}" wx:key="name">
+        <view class="category-info">
+          <view class="category-dot" style="background-color: {{item.color}};"></view>
+          <view class="category-details">
+            <text class="category-name">{{item.name}}</text>
+            <text class="category-percentage">{{item.percentage}}</text>
+          </view>
+        </view>
+        <text class="category-amount">{{item.amount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 消费趋势 -->
+  <view class="card">
+    <view class="subtitle">📉 消费趋势</view>
+    <view class="trend-chart">
+      <canvas class="trend-chart" canvas-id="trendChart"></canvas>
+    </view>
+  </view>
+
+  <!-- 预算执行情况 -->
+  <view class="card">
+    <view class="subtitle">💰 预算执行</view>
+    <view class="budget-execution">
+      <view class="budget-item">
+        <text class="text">月度预算: </text>
+        <text class="amount">¥{{monthlyBudget}}</text>
+      </view>
+      <view class="budget-item">
+        <text class="text">已使用: </text>
+        <text class="amount amount-expense">¥{{usedBudget}}</text>
+      </view>
+      <view class="budget-item">
+        <text class="text">剩余: </text>
+        <text class="amount {{remainingBudget > 0 ? 'amount-income' : 'amount-expense'}}">¥{{remainingBudget}}</text>
+      </view>
+      <view class="budget-item">
+        <text class="text">预算进度: </text>
+        <view class="progress-container">
+          <view class="progress-bar" style="width: {{budgetProgress}}%;"></view>
+        </view>
+        <text class="text">{{budgetProgress}}%</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 消费建议 -->
+  <view class="card">
+    <view class="subtitle">💡 消费建议</view>
+    <view class="suggestions">
+      <view class="suggestion-item" wx:for="{{consumptionSuggestions}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 导出分析 -->
+  <view class="card">
+    <view class="subtitle">📥 导出分析</view>
+    <text class="text">导出您的财务分析报告，方便保存和打印。</text>
+    <view class="export-buttons">
+      <button class="btn-primary" bindtap="exportPDF">导出PDF</button>
+      <button class="btn-warning" bindtap="exportExcel">导出Excel</button>
+      <button class="btn-danger" bindtap="exportImage">导出图片</button>
+    </view>
+  </view>
+</view>

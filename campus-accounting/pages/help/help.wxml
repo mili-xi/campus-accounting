@@ -1,0 +1,154 @@
+<view class="container">
+  <view class="card">
+    <view class="title">🔒 校园金融安全指南</view>
+    
+    <!-- 校园贷风险识别 -->
+    <view class="section">
+      <view class="section-title">🚨 校园贷风险识别</view>
+      <view class="content">
+        <text class="text">校园贷是指专门针对在校学生开展的贷款业务，但其中大部分属于非法贷款，存在以下风险：</text>
+        <view class="risk-list">
+          <view class="risk-item">
+            <text class="text">• 高利息：年化利率远超法律规定的36%红线</text>
+          </view>
+          <view class="risk-item">
+            <text class="text">• 暴力催收：逾期后可能遭遇电话骚扰、威胁恐吓</text>
+          </view>
+          <view class="risk-item">
+            <text class="text">• 个人信息泄露：非法贷款平台可能贩卖个人信息</text>
+          </view>
+          <view class="risk-item">
+            <text class="text">• 套路贷陷阱：以"低利息、无抵押"为诱饵，实际暗藏陷阱</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 正规求助渠道 -->
+    <view class="section">
+      <view class="section-title">📞 正规求助渠道</view>
+      <view class="help-list">
+        <view class="help-item">
+          <view class="help-icon">👨‍🏫</view>
+          <view class="help-content">
+            <text class="text">辅导员：</text>
+            <input class="help-input" placeholder="请输入辅导员电话" value="{{counselorPhone}}" bindinput="onCounselorPhoneInput" />
+          </view>
+        </view>
+        <view class="help-item">
+          <view class="help-icon">👮</view>
+          <view class="help-content">
+            <text class="text">学校保卫处：</text>
+            <input class="help-input" placeholder="请输入保卫处电话" value="{{securityPhone}}" bindinput="onSecurityPhoneInput" />
+          </view>
+        </view>
+        <view class="help-item">
+          <view class="help-icon">📱</view>
+          <view class="help-content">
+            <text class="text">96110 反诈热线：</text>
+            <text class="text">96110</text>
+          </view>
+        </view>
+        <view class="help-item">
+          <view class="help-icon">⚖️</view>
+          <view class="help-content">
+            <text class="text">12348 法律援助热线：</text>
+            <text class="text">12348</text>
+          </view>
+        </view>
+        <view class="help-item">
+          <view class="help-icon">🏥</view>
+          <view class="help-content">
+            <text class="text">学校心理健康中心：</text>
+            <input class="help-input" placeholder="请输入心理中心电话" value="{{mentalHealthPhone}}" bindinput="onMentalHealthPhoneInput" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 大学生理性消费建议 -->
+    <view class="section">
+      <view class="section-title">💡 大学生理性消费建议</view>
+      <view class="tips-list">
+        <view class="tips-item">
+          <text class="text">• 制定预算：每月生活费分三部分，必要开销、生活改善、意外储备</text>
+        </view>
+        <view class="tips-item">
+          <text class="text">• 拒绝盲目攀比：根据自身经济状况消费，避免跟风消费</text>
+        </view>
+        <view class="tips-item">
+          <text class="text">• 兼职需谨慎：优先选择学校推荐或正规平台的兼职，避免网络兼职陷阱</text>
+        </view>
+        <view class="tips-item">
+          <text class="text">• 紧急情况求助：遇到经济困难及时向辅导员或学校求助，避免陷入非法贷款陷阱</text>
+        </view>
+        <view class="tips-item">
+          <text class="text">• 学习理财知识：了解基本的理财知识，合理规划个人财务</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 大学生贷款须知 -->
+    <view class="section">
+      <view class="section-title">📖 大学生贷款款须知</view>
+      <view class="content">
+        <text class="text">如果确实需要贷款，应通过正规渠道：</text>
+        <view class="legal-channels">
+          <view class="legal-item">
+            <text class="text">• 国家助学贷款：符合条件的学生可申请，利息低、还款期限长</text>
+          </view>
+          <view class="legal-item">
+            <text class="text">• 银行正规贷款：部分银行针对大学生推出的助学贷款产品</text>
+          </view>
+          <view class="legal-item">
+            <text class="text">• 学校勤工助学：学校提供的岗位，赚取生活费的同时锻炼能力</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 安全警示 -->
+    <view class="section warning-section">
+      <view class="section-title">🚫 禁止行为</view>
+      <view class="warning-list">
+        <view class="warning-item">
+          <text class="text">• 不要随意向陌生人透露个人信息和身份信息</text>
+        </view>
+        <view class="warning-item">
+          <text class="text">• 不要在非正规平台注册账号或提交通个人信息</text>
+        </view>
+        <view class="warning-item">
+          <text class="text">• 不要相信"无抵押、低利息、秒批"的贷款广告</text>
+        </view>
+        <view class="warning-item">
+          <text class="text">• 不要将身份证、学生证等证件借给他人使用</text>
+        </view>
+        <view class="warning-item">
+          <text class="text">• 不要参与任何形式的"校园贷"活动</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 法律责任 -->
+    <view class="section">
+      <view class="section-title">⚖️ 法律责任</view>
+      <view class="content">
+        <text class="text">根据相关法律法规，非法校园贷行为可能构成功以下犯罪：</text>
+        <view class="legal-info">
+          <view class="legal-item">
+            <text class="text">• 诈骗罪：以非法占有为目的，用虚构事实或隐瞒真相的方法骗取财物</text>
+          </view>
+          <view class="legal-item">
+            <text class="text">• 敲诈勒索罪：以暴力威胁或其他方法强行索取公私财物</text>
+          </view>
+          <view class="legal-item">
+            <text class="text">• 非法经营罪：未经许可经营金融业务</text>
+          </view>
+          <view class="legal-item">
+            <text class="text">• 侵犯公民个人信息罪：非法获取、出售公民个人信息</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

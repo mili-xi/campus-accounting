@@ -1,0 +1,93 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="title">每日提醒</view>
+  
+  <!-- 今日提醒 -->
+  <view class="card">
+    <view class="today-reminder">
+      <view class="reminder-title">今日提醒</view>
+      <view class="reminder-list">
+        <view class="reminder-item" wx:for="{{todayReminders}}" wx:key="index">
+          <view class="reminder-content">
+            <view class="reminder-title-text">{{item.title}}</view>
+            <view class="reminder-description">{{item.description}}</view>
+            <view class="reminder-time">{{item.time}}</view>
+          </view>
+          <view class="reminder-action" bindtap="markAsCompleted" data-index="{{index}}">
+            {{item.completed ? '已完成' : '标记完成'}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 明日提醒 -->
+  <view class="card">
+    <view class="tomorrow-reminder">
+      <view class="reminder-title">明日提醒</view>
+      <view class="reminder-list">
+        <view class="reminder-item" wx:for="{{tomorrowReminders}}" wx:key="index">
+          <view class="reminder-content">
+            <view class="reminder-title-text">{{item.title}}</view>
+            <view class="reminder-description">{{item.description}}</view>
+            <view class="reminder-time">{{item.time}}</view>
+          </view>
+          <view class="reminder-action">
+            查看详情
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 待办事项 -->
+  <view class="card">
+    <view class="todo-section">
+      <view class="todo-title">待办事项</view>
+      <view class="todo-list">
+        <view class="todo-item" wx:for="{{todoList}}" wx:key="index">
+          <view class="todo-content">
+            <view class="todo-title-text">{{item.title}}</view>
+            <view class="todo-description">{{item.description}}</view>
+            <view class="todo-due-date">截止日期：{{item.dueDate}}</view>
+          </view>
+          <view class="todo-action">
+            <checkbox-group bindchange="onTodoChange" data-index="{{index}}">
+              <checkbox value="{{item.completed}}" checked="{{item.completed}}"></checkbox>
+            </checkbox-group>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 添加提醒 -->
+  <view class="card">
+    <view class="add-reminder">
+      <view class="add-title">添加提醒</view>
+      <form class="reminder-form" bindsubmit="submitReminder">
+        <view class="form-item">
+          <label class="form-label">提醒标题：</label>
+          <input class="form-input" name="title" placeholder="请输入提醒标题" required />
+        </view>
+        <view class="form-item">
+          <label class="form-label">提醒描述：</label>
+          <textarea class="form-textarea" name="description" placeholder="请输入提醒描述" required />
+        </view>
+        <view class="form-item">
+          <label class="form-label">提醒时间：</label>
+          <picker class="form-picker" mode="time" name="time" bindchange="onTimeChange">
+            <view class="picker-text">{{selectedTime || '请选择提醒时间'}}</view>
+          </picker>
+        </view>
+        <view class="form-item">
+          <label class="form-label">提醒日期：</label>
+          <picker class="form-picker" mode="date" name="date" bindchange="onDateChange">
+            <view class="picker-text">{{selectedDate || '请选择提醒日期'}}</view>
+          </picker>
+        </view>
+        <button class="submit-btn" formType="submit">添加提醒</button>
+      </form>
+    </view>
+  </view>
+</view>

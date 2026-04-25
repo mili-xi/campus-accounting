@@ -1,0 +1,78 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="title">联系方式</view>
+  
+  <!-- 联系方式卡片 -->
+  <view class="card">
+    <view class="contact-info">
+      <view class="contact-item">
+        <text class="label">客服电话：</text>
+        <text class="value" bindtap="makePhoneCall">400-123-4567</text>
+      </view>
+      <view class="contact-item">
+        <text class="label">客服邮箱：</text>
+        <text class="value" bindtap="sendEmail">contact@campus-accounting.com</text>
+      </view>
+      <view class="contact-item">
+        <text class="label">官方网站：</text>
+        <text class="value" bindtap="openWebsite">www.campus-accounting.com</text>
+      </view>
+      <view class="contact-item">
+        <text class="label">官方微信：</text>
+        <text class="value">校园记记账</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 工作时间卡片 -->
+  <view class="card">
+    <view class="work-time">
+      <view class="work-item">
+        <text class="label">客服工作时间：</text>
+        <text class="value">周一至周五 9:00-21:00</text>
+      </view>
+      <view class="work-item">
+        <text class="label">节假日工作时间：</text>
+        <text class="value">10:00-18:00</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 联系表单卡片 -->
+  <view class="card">
+    <view class="form-title">意见反馈</view>
+    <form class="feedback-form" bindsubmit="submitFeedback">
+      <view class="form-item">
+        <label class="form-label">姓名：</label>
+        <input class="form-input" name="name" placeholder="请输入您的姓名" required />
+      </view>
+      <view class="form-item">
+        <label class="form-label">联系方式：</label>
+        <input class="form-input" name="contact" placeholder="请输入您的联系方式" required />
+      </view>
+      <view class="form-item">
+        <label class="form-label">反馈内容：</label>
+        <textarea class="form-textarea" name="content" placeholder="请输入您的反馈内容" required />
+      </view>
+      <button class="submit-btn" formType="submit">提交反馈</button>
+    </form>
+  </view>
+  
+  <!-- 关于我们卡片 -->
+  <view class="card">
+    <view class="about-title">关于我们</view>
+    <view class="about-content">
+      <text class="about-text">校园记记账小程序是一款专为大学生设计的记账工具，帮助大学生更好地管理自己的财务。</text>
+      <text class="about-text">我们致力于为大学生提供简单、易用、安全的记账服务，让大学生能够更好地控制自己的消费。</text>
+    </view>
+  </view>
+  
+  <!-- 法律声明卡片 -->
+  <view class="card">
+    <view class="legal-title">法律声明</view>
+    <view class="legal-content">
+      <text class="legal-text">本小程序仅供学习和交流使用，不得用于商业用途。</text>
+      <text class="legal-text">如有任何问题，请及时与我们联系。</text>
+    </view>
+  </view>
+</view>

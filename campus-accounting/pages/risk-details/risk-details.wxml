@@ -1,0 +1,86 @@
+<view class="container">
+  <view class="card">
+    <view class="title">📊 风险详情</view>
+    <view class="risk-info">
+      <view class="risk-item">
+        <text class="text">风险评分：</text>
+        <text class="text score-text">{{riskScore}}</text>
+      </view>
+      <view class="risk-item">
+        <text class="text">风险等级：</text>
+        <text class="text level-text">{{riskLevelText}}</text>
+      </view>
+      <view class="risk-item">
+        <text class="text">风险描述：</text>
+        <text class="text">{{riskDescription}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 风险因子分析 -->
+  <view class="card">
+    <view class="subtitle">🎯 风险因子分析</view>
+    <view class="risk-factors">
+      <view class="factor-item" wx:for="{{riskFactors}}" wx:key="index">
+        <view class="factor-name">
+          <text class="text">{{item.name}}</text>
+        </view>
+        <view class="factor-value">
+          <text class="text">{{item.value}}</text>
+        </view>
+        <view class="factor-progress">
+          <view class="progress-container">
+            <view class="progress-bar" style="width: {{item.progress}}%;"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 风险预警记录 -->
+  <view class="card">
+    <view class="subtitle">📝 风险预警记录</view>
+    <view class="warning-records">
+      <view class="record-item" wx:for="{{warningRecords}}" wx:key="index">
+        <view class="record-time">
+          <text class="text">{{item.time}}</text>
+        </view>
+        <view class="record-content">
+          <text class="text">{{item.content}}</text>
+        </view>
+        <view class="record-level level-{{item.level}}">
+          <text class="text">{{item.levelText}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 风险防范措施 -->
+  <view class="card">
+    <view class="subtitle">💡 风险防范措施</view>
+    <view class="prevention-measures">
+      <view class="measure-item" wx:for="{{preventionMeasures}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 行动建议 -->
+  <view class="card">
+    <view class="subtitle">⚡ 行动建议</view>
+    <view class="action-suggestions">
+      <view class="suggestion-item" wx:for="{{actionSuggestions}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分享与收入藏 -->
+  <view class="card">
+    <view class="subtitle">📤 分享与收入藏</view>
+    <view class="btn-container">
+      <button class="btn-primary" bindtap="shareResult">分享结果</button>
+      <button class="btn-warning" bindtap="saveToFavorites">收入藏</button>
+    </view>
+  </view>
+</view>

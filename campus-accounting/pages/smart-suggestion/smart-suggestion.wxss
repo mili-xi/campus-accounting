@@ -1,0 +1,333 @@
+/* 页面整体样式 */
+.container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 标题样式 */
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+/* 副标题样式 */
+.subtitle {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1976D2;
+  margin-bottom: 20rpx;
+  border-bottom: 2rpx solid #1976D2;
+  padding-bottom: 10rpx;
+}
+
+/* 正文样式 */
+.text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+  display: block;
+  margin-bottom: 15rpx;
+}
+
+/* 介绍样式 */
+.intro {
+  margin-bottom: 30rpx;
+}
+
+/* 财务健康评估样式 */
+.health-assessment {
+  margin-top: 20rpx;
+}
+
+.health-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.health-item:last-child {
+  border-bottom: none;
+}
+
+/* 状态态样式 */
+.status {
+  font-size: 30rpx;
+  font-weight: bold;
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.status-good {
+  color: #fff;
+  background-color: #28a745;
+}
+
+.status-medium {
+  color: #000;
+  background-color: #ffc107;
+}
+
+.status-poor {
+  color: #fff;
+  background-color: #dc3545;
+}
+
+/* 金额样式 */
+.amount {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.amount-income {
+  color: #28a745;
+}
+
+.amount-expense {
+  color: #dc3545;
+}
+
+/* 个性化建议样式 */
+.suggestions {
+  margin-top: 20rpx;
+}
+
+.suggestion-item {
+  padding: 15rpx;
+  background-color: #e7f3ff;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+  border-left: 6rpx solid #1976D2;
+}
+
+.suggestion-item .text {
+  color: #0c5460;
+  margin: 0;
+}
+
+/* 消费优化建议样式 */
+.expense-optimization {
+  margin-top: 20rpx;
+}
+
+.optimization-item {
+  padding: 15rpx;
+  background-color: #fff3cd;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+  border-left: 6rpx solid #ffc107;
+}
+
+.optimization-item .text {
+  color: #856404;
+  margin: 0;
+}
+
+/* 储蓄建议样式 */
+.savings-suggestions {
+  margin-top: 20rpx;
+}
+
+.savings-item {
+  padding: 15rpx;
+  background-color: #d4edda;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+  border-left: 6rpx solid #28a745;
+}
+
+.savings-item .text {
+  color: #155724;
+  margin: 0;
+}
+
+/* 投资建议样式 */
+.investment-suggestions {
+  margin-top: 20rpx;
+}
+
+.investment-item {
+  padding: 15rpx;
+  background-color: #f8f9fa;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+}
+
+.investment-item .text {
+  color: #333;
+  margin: 0;
+}
+
+/* 财务目标设置定样式 */
+.financial-goals {
+  margin-top: 20rpx;
+}
+
+.goal-item {
+  padding: 15rpx;
+  background-color: #e7f3ff;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+  border-left: 6rpx solid #1976D2;
+}
+
+.goal-item .text {
+  color: #0c5460;
+  margin: 0;
+}
+
+/* 预算优化建议样式 */
+.budget-optimization {
+  margin-top: 20rpx;
+}
+
+.budget-item {
+  padding: 15rpx;
+  background-color: #fff3cd;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+  border-left: 6rpx solid #ffc107;
+}
+
+.budget-item .text {
+  color: #856404;
+  margin: 0;
+}
+
+/* 学习资源样式 */
+.learning-resources {
+  margin-top: 20rpx;
+}
+
+.resource-item {
+  padding: 15rpx;
+  background-color: #f8f9fa;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+}
+
+.resource-item .text {
+  color: #333;
+  margin: 0;
+}
+
+/* 财务工具推荐样式 */
+.financial-tools {
+  margin-top: 20rpx;
+}
+
+.tool-item {
+  padding: 15rpx;
+  background-color: #d4edda;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+  border-left: 6rpx solid #28a745;
+}
+
+.tool-item .text {
+  color: #155724;
+  margin: 0;
+}
+
+/* 按钮样式 */
+.btn-primary {
+  width: 100%;
+  background-color: #1976D2;
+  color: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.btn-warning {
+  width: 100%;
+  background-color: #ffc107;
+  color: #000;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.btn-danger {
+  width: 100%;
+  background-color: #dc3545;
+  color: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.btn-primary:active,
+.btn-warning:active,
+.btn-danger:active {
+  transform: scale(0.98);
+}
+
+/* 完成功按钮样式 */
+.finish-btn {
+  margin-top: 40rpx;
+  margin-bottom: 60rpx;
+}
+
+/* 页脚样式 */
+.footer {
+  margin-top: 30rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #e9ecef;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* 响应式设置计 */
+@media screen and (max-width: 750rpx) {
+  .container {
+    padding: 15rpx;
+  }
+  
+  .card {
+    padding: 25rpx;
+  }
+  
+  .title {
+    font-size: 36rpx;
+  }
+  
+  .subtitle {
+    font-size: 28rpx;
+  }
+  
+  .text {
+    font-size: 26rpx;
+  }
+}

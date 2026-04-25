@@ -1,0 +1,86 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="title">预算优化</view>
+  
+  <!-- 预算概况 -->
+  <view class="card">
+    <view class="budget-overview">
+      <view class="overview-title">预算概况</view>
+      <view class="overview-content">
+        <view class="overview-item">
+          <text class="label">本月预算：</text>
+          <text class="value">{{monthlyBudget}}元</text>
+        </view>
+        <view class="overview-item">
+          <text class="label">已使用：</text>
+          <text class="value">{{usedBudget}}元</text>
+        </view>
+        <view class="overview-item">
+          <text class="label">剩余预算：</text>
+          <text class="value">{{remainingBudget}}元</text>
+        </view>
+        <view class="overview-item">
+          <text class="label">预算使用率：</text>
+          <text class="value">{{budgetUsage}}%</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 预算分类 -->
+  <view class="card">
+    <view class="budget-categories">
+      <view class="categories-title">预算分类</view>
+      <view class="categories-list">
+        <view class="category-item" wx:for="{{budgetCategories}}" wx:key="index">
+          <view class="category-info">
+            <view class="category-name">{{item.name}}</view>
+            <view class="category-usage">{{item.usage}}%</view>
+          </view>
+          <view class="category-progress">
+            <view class="progress-bar">
+              <view class="progress-fill" style="width: {{item.usage}}%;"></view>
+            </view>
+          </view>
+          <view class="category-details">{{item.details}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 优化建议 -->
+  <view class="card">
+    <view class="optimization-suggestions">
+      <view class="suggestions-title">优化建议</view>
+      <view class="suggestions-list">
+        <view class="suggestion-item" wx:for="{{optimizationSuggestions}}" wx:key="index">
+          {{item}}
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 预算调整 -->
+  <view class="card">
+    <view class="budget-adjustment">
+      <view class="adjustment-title">预算调整</view>
+      <form class="adjustment-form" bindsubmit="submitAdjustment">
+        <view class="form-item">
+          <label class="form-label">调整类型：</label>
+          <picker class="form-picker" mode="selector" range="{{adjustmentTypes}}" name="adjustmentType" bindchange="onTypeChange">
+            <view class="picker-text">{{selectedType || '请选择调整类型'}}</view>
+          </picker>
+        </view>
+        <view class="form-item">
+          <label class="form-label">调整金额：</label>
+          <input class="form-input" name="amount" placeholder="请输入调整金额" type="number" required />
+        </view>
+        <view class="form-item">
+          <label class="form-label">调整说明：</label>
+          <textarea class="form-textarea" name="description" placeholder="请输入调整说明" required />
+        </view>
+        <button class="submit-btn" formType="submit">提交调整</button>
+      </form>
+    </view>
+  </view>
+</view>

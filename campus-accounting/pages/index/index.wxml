@@ -1,0 +1,88 @@
+<view class="container">
+  <!-- 预算设置卡片 -->
+  <view class="card">
+    <view class="title">生活费预算</view>
+    <view wx:if="{{monthlyBudget > 0}}" class="budget-info">
+      <view class="budget-row">
+        <text class="text">本月预算: </text>
+        <text class="amount">¥{{monthlyBudget}}</text>
+      </view>
+      <view class="budget-row">
+        <text class="text">每周限额: </text>
+        <text class="amount">¥{{weeklyBudget}}</text>
+      </view>
+      <view class="budget-row">
+        <text class="text">已支出: </text>
+        <text class="amount amount-expense">¥{{weekExpense}}</text>
+      </view>
+      <view class="budget-row">
+        <text class="text">剩余预算: </text>
+        <text class="amount {{weekRemaining > 0 ? 'amount-income' : 'amount-expense'}}">
+          ¥{{weekRemaining}}
+        </text>
+      </view>
+      <view class="budget-row">
+        <text class="text">预算进度: </text>
+        <view class="progress-container">
+          <view class="progress-bar" style="width: {{budgetProgress}}%;"></view>
+        </view>
+        <text class="text">{{budgetProgress}}%</text>
+      </view>
+    </view>
+    <view wx:else class="no-budget">
+      <text class="text">请设置本月生活费预算</text>
+    </view>
+    <button class="btn-primary" bindtap="setBudget">设置预算</button>
+  </view>
+
+  <!-- 今日期支出卡片 -->
+  <view class="card">
+    <view class="title">今日支出</view>
+    <view class="today-expense">
+      <text class="text">今日: </text>
+      <text class="amount amount-expense">¥{{todayExpense}}</text>
+    </view>
+  </view>
+
+  <!-- 快速记录账入口 -->
+  <view class="card">
+    <view class="title">快速记录账</view>
+    <view class="quick-actions">
+      <button class="btn-primary" bindtap="addRecord">记录一笔</button>
+      <button class="btn-warning" bindtap="viewRecords">查看记录</button>
+      <button class="btn-danger" bindtap="viewAnalysis">财务分析</button>
+    </view>
+  </view>
+
+  <!-- 警告信息 -->
+  <view wx:if="{{hasWarnings}}" class="card warning-card">
+    <view class="title">⚠️ 预警信息</view>
+    <view class="warning-list">
+      <view wx:for="{{warnings}}" wx:key="index" class="warning-item">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 安全提示 -->
+  <view class="card">
+    <view class="title">🔒 安全提示</view>
+    <view class="safety-tips">
+      <text class="text">如有异常消费或收入到不明信息，请及时联系辅导员或学校保卫处。</text>
+      <button class="btn-danger" bindtap="showSafetyPage">查看安全须知</button>
+    </view>
+  </view>
+
+  <!-- 特色功能入口 -->
+  <view class="card">
+    <view class="title">✨ 特色功能</view>
+    <view class="innovation-actions">
+      <button class="btn-primary" bindtap="viewGuide">📚 校园贷防范指南</button>
+      <button class="btn-warning" bindtap="viewRiskConsequence">⚖️ 法律后果科普</button>
+      <button class="btn-danger" bindtap="viewMonthlyReport">📊 月度财务报告</button>
+      <button class="btn-primary" bindtap="viewDebtWarning">⚠️ 债务预警系统</button>
+      <button class="btn-warning" bindtap="viewSpendingHabits">🎯 消费习惯分析</button>
+      <button class="btn-danger" bindtap="viewSmartSuggestion">💡 智能财务建议</button>
+    </view>
+  </view>
+</view>

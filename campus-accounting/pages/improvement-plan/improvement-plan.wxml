@@ -1,0 +1,94 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="title">改进计划</view>
+  
+  <!-- 当前状态 -->
+  <view class="card">
+    <view class="current-status">
+      <view class="status-title">当前状态</view>
+      <view class="status-info">
+        <view class="info-item">
+          <text class="label">当前评分：</text>
+          <text class="value">{{currentScore}}分（{{scoreLevel}}）</text>
+        </view>
+        <view class="info-item">
+          <text class="label">目标评分：</text>
+          <text class="value">{{targetScore}}分</text>
+        </view>
+        <view class="info-item">
+          <text class="label">提升空间：</text>
+          <text class="value">{{scoreDifference}}分</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 改进方案 -->
+  <view class="card">
+    <view class="plans-section">
+      <view class="plans-title">改进方案</view>
+      <view class="plan-list">
+        <view class="plan-item" wx:for="{{improvementPlans}}" wx:key="index">
+          <view class="plan-header">
+            <view class="plan-title">{{item.title}}</view>
+            <view class="plan-progress">进度：{{item.progress}}%</view>
+          </view>
+          <view class="plan-description">{{item.description}}</view>
+          <view class="plan-action" bindtap="viewPlanDetail" data-index="{{index}}">
+            {{item.actionText}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 每日任务 -->
+  <view class="card">
+    <view class="tasks-section">
+      <view class="tasks-title">每日任务</view>
+      <view class="task-list">
+        <view class="task-item" wx:for="{{dailyTasks}}" wx:key="index">
+          <view class="task-content">
+            <view class="task-title">{{item.title}}</view>
+            <view class="task-description">{{item.description}}</view>
+          </view>
+          <view class="task-action">
+            <checkbox-group bindchange="onTaskChange" data-index="{{index}}">
+              <checkbox value="{{item.completed}}" checked="{{item.completed}}"></checkbox>
+            </checkbox-group>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 进度统计 -->
+  <view class="card">
+    <view class="statistics-section">
+      <view class="statistics-title">进度统计</view>
+      <view class="statistics-content">
+        <view class="stat-item">
+          <text class="label">任务完成率：</text>
+          <text class="value">{{taskCompletionRate}}%</text>
+        </view>
+        <view class="stat-item">
+          <text class="label">平均每日进步：</text>
+          <text class="value">{{dailyProgress}}分</text>
+        </view>
+        <view class="stat-item">
+          <text class="label">预计完成时间：</text>
+          <text class="value">{{estimatedCompletionTime}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 操作按钮 -->
+  <view class="card">
+    <view class="actions-section">
+      <button class="action-btn" bindtap="viewProgress">查看进度</button>
+      <button class="action-btn" bindtap="generateReport">生成报告</button>
+      <button class="action-btn" bindtap="sharePlan">分享计划</button>
+    </view>
+  </view>
+</view>

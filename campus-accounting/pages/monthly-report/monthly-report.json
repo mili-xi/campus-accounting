@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "月度财务报告",
+  "navigationBarBackgroundColor": "#1976D2",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#f5f5f5",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
+}

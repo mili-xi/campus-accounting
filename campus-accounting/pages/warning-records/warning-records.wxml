@@ -1,0 +1,80 @@
+<view class="container">
+  <view class="card">
+    <view class="title">📝 风险预警记录</view>
+    <view class="intro">
+      <text class="text">查看您的风险预警记录，了解历史风险情况，及时采取措施防范风险。</text>
+    </view>
+  </view>
+
+  <!-- 预警记录列表 -->
+  <view class="card">
+    <view class="subtitle">📊 预警记录列表</view>
+    <view class="warning-records">
+      <view class="record-item" wx:for="{{warningRecords}}" wx:key="index">
+        <view class="record-header">
+          <view class="record-time">
+            <text class="text">{{item.time}}</text>
+          </view>
+          <view class="record-level level-{{item.level}}">
+            <text class="text">{{item.levelText}}</text>
+          </view>
+        </view>
+        <view class="record-content">
+          <text class="text">{{item.content}}</text>
+        </view>
+        <view class="record-action">
+          <button class="btn-primary" bindtap="viewRecordDetails" data-index="{{index}}">查看详情</button>
+        </view>
+      </view>
+    </view>
+    <view class="empty-state" wx:if="{{warningRecords.length === 0}}">
+      <text class="text">暂无风险预警记录</text>
+    </view>
+  </view>
+
+  <!-- 预警趋势 -->
+  <view class="card">
+    <view class="subtitle">📈 预警趋势</view>
+    <view class="trend-chart">
+      <text class="text">预警趋势图表正在加载中...</text>
+    </view>
+  </view>
+
+  <!-- 风险统计 -->
+  <view class="card">
+    <view class="subtitle">📊 风险统计</view>
+    <view class="risk-stats">
+      <view class="stat-item">
+        <text class="text">总预警次数：{{totalWarnings}}</text>
+      </view>
+      <view class="stat-item">
+        <text class="text">高风险预警：{{highRiskWarnings}}次</text>
+      </view>
+      <view class="stat-item">
+        <text class="text">中风险预警：{{mediumRiskWarnings}}次</text>
+      </view>
+      <view class="stat-item">
+        <text class="text">低风险预警：{{lowRiskWarnings}}次</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 行动建议 -->
+  <view class="card">
+    <view class="subtitle">💡 行动建议</view>
+    <view class="suggestions">
+      <view class="suggestion-item" wx:for="{{suggestions}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分享与导出 -->
+  <view class="card">
+    <view class="subtitle">📤 分享与导出</view>
+    <view class="btn-container">
+      <button class="btn-primary" bindtap="shareRecords">分享记录</button>
+      <button class="btn-warning" bindtap="exportRecords">导出记录</button>
+    </view>
+  </view>
+</view>

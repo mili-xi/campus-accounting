@@ -1,0 +1,175 @@
+<view class="container">
+  <view class="card">
+    <view class="title">📊 您的月度财务报告</view>
+    <view class="report-date">
+      <text class="text">{{reportDate}}</text>
+    </view>
+  </view>
+
+  <!-- 借贷健康度评分 -->
+  <view class="card score-card">
+    <view class="title">💚 您的借贷健康度评分</view>
+    <view class="score-display">
+      <view class="score-circle">
+        <text class="score-text">{{creditScore}}</text>
+        <text class="score-label">分</text>
+      </view>
+    </view>
+    <view class="score-description">
+      <text class="text">{{scoreDescription}}</text>
+    </view>
+    <view class="score-suggestion">
+      <text class="text">{{scoreSuggestion}}</text>
+    </view>
+    <button class="btn-primary" bindtap="viewScoreDetails">查看评分详情</button>
+  </view>
+
+  <!-- 财务概览 -->
+  <view class="card">
+    <view class="subtitle">📈 财务概览</view>
+    <view class="overview">
+      <view class="overview-item">
+        <text class="text">总收入: </text>
+        <text class="amount amount-income">¥{{totalIncome}}</text>
+      </view>
+      <view class="overview-item">
+        <text class="text">总支出: </text>
+        <text class="amount amount-expense">¥{{totalExpense}}</text>
+      </view>
+      <view class="overview-item">
+        <text class="text">结余: </text>
+        <text class="amount {{balance > 0 ? 'amount-income' : 'amount-expense'}}">¥{{balance}}</text>
+      </view>
+      <view class="overview-item">
+        <text class="text">消费占比: </text>
+        <text class="amount">{{expenseRatio}}%</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 消费分类分析 -->
+  <view class="card">
+    <view class="subtitle">📊 消费分类分析</view>
+    <view class="category-analysis">
+      <view class="category-item" wx:for="{{topExpenseCategories}}" wx:key="index">
+        <text class="text">{{item.category}}: {{item.percentage}}%</text>
+        <view class="category-bar">
+          <view class="bar-fill" style="width: {{item.percentage}}%;"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 预算执行情况 -->
+  <view class="card">
+    <view class="subtitle">💰 预算执行情况</view>
+    <view class="budget-execution">
+      <view class="budget-item">
+        <text class="text">预算金额: </text>
+        <text class="amount">¥{{monthlyBudget}}</text>
+      </view>
+      <view class="budget-item">
+        <text class="text">已使用: </text>
+        <text class="amount amount-expense">¥{{usedBudget}}</text>
+      </view>
+      <view class="budget-item">
+        <text class="text">剩余: </text>
+        <text class="amount {{remainingBudget > 0 ? 'amount-income' : 'amount-expense'}}">¥{{remainingBudget}}</text>
+      </view>
+      <view class="budget-item">
+        <text class="text">预算使用率: </text>
+        <view class="progress-container">
+          <view class="progress-bar" style="width: {{budgetUsage}}%;"></view>
+        </view>
+        <text class="text">{{budgetUsage}}%</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 消费趋势分析 -->
+  <view class="card">
+    <view class="subtitle">📉 消费趋势分析</view>
+    <view class="trend-analysis">
+      <view class="trend-item">
+        <text class="text">本月支出环比: </text>
+        <text class="amount {{monthlyTrend > 0 ? 'amount-expense' : 'amount-income'}}">{{monthlyTrend}}%</text>
+      </view>
+      <view class="trend-item">
+        <text class="text">本周支出环比: </text>
+        <text class="amount {{weeklyTrend > 0 ? 'amount-expense' : 'amount-income'}}">{{weeklyTrend}}%</text>
+      </view>
+      <view class="trend-item">
+        <text class="text">日均消费: </text>
+        <text class="amount amount-expense">¥{{dailyAverage}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 风险识别 -->
+  <view class="card warning-card" wx:if="{{hasRisks}}">
+    <view class="title">⚠️ 风险识别</view>
+    <view class="warning-list">
+      <view class="warning-item" wx:for="{{risks}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+    <button class="btn-danger" bindtap="viewRiskDetails">查看风险详情</button>
+  </view>
+
+  <!-- 省钱建议 -->
+  <view class="card">
+    <view class="subtitle">💡 省钱建议</view>
+    <view class="suggestions">
+      <view class="suggestion-item" wx:for="{{moneySavingTips}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 消费习惯改善建议 -->
+  <view class="card">
+    <view class="subtitle">🎯 消费习惯改善建议</view>
+    <view class="habit-suggestions">
+      <view class="habit-item" wx:for="{{habitSuggestions}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 报告分享 -->
+  <view class="card">
+    <view class="subtitle">📤 报告分享</view>
+    <text class="text">将您的月度报告分享给家人或朋友，一起关注财务健康。</text>
+    <view class="share-buttons">
+      <button class="btn-primary" bindtap="shareToWechat">分享到微信</button>
+      <button class="btn-warning" bindtap="shareToWeibo">分享到微博</button>
+      <button class="btn-danger" bindtap="saveToAlbum">保存到相册</button>
+    </view>
+  </view>
+
+  <!-- 导出报告 -->
+  <view class="card">
+    <view class="subtitle">📥 导出报告</view>
+    <text class="text">导出您的月度报告，方便保存和打印。</text>
+    <view class="export-buttons">
+      <button class="btn-primary" bindtap="exportPDF">导出PDF</button>
+      <button class="btn-warning" bindtap="exportExcel">导出Excel</button>
+      <button class="btn-danger" bindtap="exportImage">导出图片</button>
+    </view>
+  </view>
+
+  <!-- 历史报告 -->
+  <view class="card">
+    <view class="subtitle">📚 历史报告</view>
+    <text class="text">查看您的历史报告，了解财务状况的变化趋势。</text>
+    <button class="btn-primary" bindtap="viewHistory">查看历史报告</button>
+  </view>
+
+  <!-- 总结 -->
+  <view class="card">
+    <view class="title">📌 本月总结</view>
+    <text class="text">{{monthlySummary}}</text>
+  </view>
+
+  <button class="btn-primary finish-btn" bindtap="finishReading">我已阅读并理解</button>
+</view>

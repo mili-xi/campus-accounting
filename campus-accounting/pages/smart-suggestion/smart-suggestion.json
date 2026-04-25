@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "智能财务建议",
+  "navigationBarBackgroundColor": "#1976D2",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#f5f5f5",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
+}

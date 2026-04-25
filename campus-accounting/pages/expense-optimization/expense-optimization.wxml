@@ -1,0 +1,104 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="title">消费优化</view>
+  
+  <!-- 消费概况 -->
+  <view class="card">
+    <view class="expense-overview">
+      <view class="overview-title">消费概况</view>
+      <view class="overview-content">
+        <view class="overview-item">
+          <text class="label">本月支出：</text>
+          <text class="value">{{monthlyExpense}}元</text>
+        </view>
+        <view class="overview-item">
+          <text class="label">日均支出：</text>
+          <text class="value">{{dailyExpense}}元</text>
+        </view>
+        <view class="overview-item">
+          <text class="label">消费增长：</text>
+          <text class="value">{{expenseGrowth}}%</text>
+        </view>
+        <view class="overview-item">
+          <text class="label">预算使用率：</text>
+          <text class="value">{{budgetUsage}}%</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 消费分类 -->
+  <view class="card">
+    <view class="expense-categories">
+      <view class="categories-title">消费分类</view>
+      <view class="categories-list">
+        <view class="category-item" wx:for="{{expenseCategories}}" wx:key="index">
+          <view class="category-info">
+            <view class="category-name">{{item.name}}</view>
+            <view class="category-amount">{{item.amount}}元</view>
+          </view>
+          <view class="category-progress">
+            <view class="progress-bar">
+              <view class="progress-fill" style="width: {{item.percentage}}%;"></view>
+            </view>
+          </view>
+          <view class="category-percentage">{{item.percentage}}%</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 优化建议 -->
+  <view class="card">
+    <view class="optimization-suggestions">
+      <view class="suggestions-title">优化建议</view>
+      <view class="suggestions-list">
+        <view class="suggestion-item" wx:for="{{optimizationSuggestions}}" wx:key="index">
+          {{item}}
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 消费记录 -->
+  <view class="card">
+    <view class="expense-records">
+      <view class="records-title">最近消费记录</view>
+      <view class="records-list">
+        <view class="record-item" wx:for="{{recentRecords}}" wx:key="index">
+          <view class="record-info">
+            <view class="record-name">{{item.name}}</view>
+            <view class="record-date">{{item.date}}</view>
+          </view>
+          <view class="record-amount">{{item.amount}}元</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 添加预算 -->
+  <view class="card">
+    <view class="add-budget">
+      <view class="budget-title">添加预算</view>
+      <form class="budget-form" bindsubmit="submitBudget">
+        <view class="form-item">
+          <label class="form-label">预算类型：</label>
+          <picker class="form-picker" mode="selector" range="{{budgetTypes}}" name="budgetType" bindchange="onTypeChange">
+            <view class="picker-text">{{selectedType || '请选择预算类型'}}</view>
+          </picker>
+        </view>
+        <view class="form-item">
+          <label class="form-label">预算金额：</label>
+          <input class="form-input" name="amount" placeholder="请输入预算金额" type="number" required />
+        </view>
+        <view class="form-item">
+          <label class="form-label">预算周期：</label>
+          <picker class="form-picker" mode="selector" range="{{budgetPeriods}}" name="period" bindchange="onPeriodChange">
+            <view class="picker-text">{{selectedPeriod || '请选择预算周期'}}</view>
+          </picker>
+        </view>
+        <button class="submit-btn" formType="submit">提交预算</button>
+      </form>
+    </view>
+  </view>
+</view>

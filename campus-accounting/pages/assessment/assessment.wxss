@@ -1,0 +1,230 @@
+/* 页面整体样式 */
+.container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 标题样式 */
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+/* 副标题样式 */
+.subtitle {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #1976D2;
+  margin-bottom: 15rpx;
+  border-bottom: 2rpx solid #1976D2;
+  padding-bottom: 10rpx;
+}
+
+/* 文本样式 */
+.text {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.6;
+}
+
+/* 介绍样式 */
+.intro {
+  margin-bottom: 30rpx;
+}
+
+/* 评估进度样式 */
+.progress-container {
+  width: 100%;
+  height: 20rpx;
+  background-color: #f0f0f0;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-bottom: 15rpx;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #1976D2;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  text-align: center;
+}
+
+/* 题目卡片样式 */
+.question-card {
+  margin-bottom: 30rpx;
+}
+
+.question-title {
+  margin-bottom: 25rpx;
+}
+
+.question-title .text {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+  line-height: 1.4;
+}
+
+/* 选项样式 */
+.options {
+  margin-top: 20rpx;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #f8f9fa;
+  border-radius: 12rpx;
+  margin-bottom: 15rpx;
+  transition: all 0.3s ease;
+}
+
+.option-item:active {
+  background-color: #e9ecef;
+  transform: scale(0.98);
+}
+
+.option-item.selected {
+  background-color: #e7f3ff;
+  border-left: 6rpx solid #1976D2;
+}
+
+/* 选项单选按钮样式 */
+.option-radio {
+  width: 24rpx;
+  height: 24rpx;
+  border: 2rpx solid #1976D2;
+  border-radius: 50%;
+  margin-right: 15rpx;
+  position: relative;
+}
+
+.option-radio.selected::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12rpx;
+  height: 12rpx;
+  background-color: #1976D2;
+  border-radius: 50%;
+}
+
+/* 答题按钮样式 */
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+  margin-top: 20rpx;
+}
+
+.btn-primary,
+.btn-warning,
+.btn-danger {
+  width: 100%;
+  padding: 25rpx;
+  font-size: 30rpx;
+  border-radius: 12rpx;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:active,
+.btn-warning:active,
+.btn-danger:active {
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled,
+.btn-warning:disabled,
+.btn-danger:disabled {
+  opacity: 0.6;
+  transform: none;
+}
+
+/* 评估结果样式 */
+.result-card {
+  margin-top: 30rpx;
+  padding: 40rpx;
+  background-color: #f0fdf4;
+  border-left: 8rpx solid #28a745;
+}
+
+.risk-score {
+  text-align: center;
+  margin: 30rpx 0;
+}
+
+.score-text {
+  font-size: 72rpx;
+  font-weight: bold;
+  color: #28a745;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 24rpx;
+  color: #689f38;
+  margin-top: 10rpx;
+}
+
+.risk-level {
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.risk-level .text {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.risk-description {
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.risk-description .text {
+  color: #689f38;
+  line-height: 1.5;
+}
+
+/* 风险防范建议样式 */
+.risk-suggestions {
+  margin-top: 30rpx;
+}
+
+.suggestions {
+  margin-top: 20rpx;
+}
+
+.suggestion-item {
+  padding: 20rpx;
+  background-color: #e7f3ff;
+  border-radius: 12rpx;
+  margin-bottom: 15rpx;
+  border-left: 6rpx solid #1976D2;
+}
+
+.suggestion-item .text {
+  color: #0c5460;
+  line-height: 1.5;
+}

@@ -1,0 +1,72 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="title">财务工具</view>
+  
+  <!-- 常用工具 -->
+  <view class="card">
+    <view class="tools-section">
+      <view class="section-title">常用工具</view>
+      <view class="tools-list">
+        <view class="tool-item" wx:for="{{financialTools}}" wx:key="index" bindtap="openTool" data-index="{{index}}">
+          <view class="tool-icon">{{item.icon}}</view>
+          <view class="tool-info">
+            <view class="tool-name">{{item.name}}</view>
+            <view class="tool-desc">{{item.description}}</view>
+          </view>
+          <view class="tool-arrow">→</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 计算器工具 -->
+  <view class="card">
+    <view class="calculators-section">
+      <view class="section-title">计算器工具</view>
+      <view class="calculators-list">
+        <view class="calculator-item" wx:for="{{calculators}}" wx:key="index" bindtap="openCalculator" data-index="{{index}}">
+          <view class="calculator-icon">{{item.icon}}</view>
+          <view class="calculator-info">
+            <view class="calculator-name">{{item.name}}</view>
+            <view class="calculator-desc">{{item.description}}</view>
+          </view>
+          <view class="calculator-arrow">→</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 预算工具 -->
+  <view class="card">
+    <view class="budget-tools-section">
+      <view class="section-title">预算工具</view>
+      <view class="budget-tools-list">
+        <view class="budget-tool-item" wx:for="{{budgetTools}}" wx:key="index" bindtap="openBudgetTool" data-index="{{index}}">
+          <view class="budget-tool-icon">{{item.icon}}</view>
+          <view class="budget-tool-info">
+            <view class="budget-tool-name">{{item.name}}</view>
+            <view class="budget-tool-desc">{{item.description}}</view>
+          </view>
+          <view class="budget-tool-arrow">→</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 投资工具 -->
+  <view class="card">
+    <view class="investment-tools-section">
+      <view class="section-title">投资工具</view>
+      <view class="investment-tools-list">
+        <view class="investment-tool-item" wx:for="{{investmentTools}}" wx:key="index" bindtap="openInvestmentTool" data-index="{{index}}">
+          <view class="investment-tool-icon">{{item.icon}}</view>
+          <view class="investment-tool-info">
+            <view class="investment-tool-name">{{item.name}}</view>
+            <view class="investment-tool-desc">{{item.description}}</view>
+          </view>
+          <view class="investment-tool-arrow">→</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

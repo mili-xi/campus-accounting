@@ -1,0 +1,58 @@
+<view class="container">
+  <view class="card">
+    <view class="title">📚 校园贷风险防范知识测验</view>
+    <view class="intro">
+      <text class="text">欢迎参加校园贷风险防范知识测验！请认真回答以下问题，测试您对校园贷风险的了解程度。</text>
+    </view>
+  </view>
+
+  <!-- 答题进度 -->
+  <view class="card">
+    <view class="subtitle">📊 答题进度</view>
+    <view class="progress-container">
+      <view class="progress-bar" style="width: {{progress}}%;"></view>
+    </view>
+    <view class="progress-text">
+      <text class="text">{{currentQuestion + 1}}/{{questions.length}}</text>
+    </view>
+  </view>
+
+  <!-- 题目卡片 -->
+  <view class="card question-card">
+    <view class="question-title">
+      <text class="text">{{currentQuestion + 1}}. {{questions[currentQuestion].question}}</text>
+    </view>
+    <view class="options">
+      <view class="option-item" wx:for="{{questions[currentQuestion].options}}" wx:key="index" bindtap="selectOption" data-index="{{index}}">
+        <view class="option-radio {{selectedOption === index ? 'selected' : ''}}"></view>
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 答题按钮 -->
+  <view class="card">
+    <view class="btn-container">
+      <button class="btn-primary" bindtap="submitAnswer" disabled="{{selectedOption === null}}">提交答案</button>
+      <button class="btn-warning" bindtap="skipQuestion" disabled="{{currentQuestion === questions.length - 1}}">跳过此题</button>
+      <button class="btn-danger" bindtap="viewResult" disabled="{{currentQuestion !== questions.length - 1}}">查看结果</button>
+    </view>
+  </view>
+
+  <!-- 答题结果 -->
+  <view class="card result-card" wx:if="{{showResult}}">
+    <view class="title">🎉 测验完成功</view>
+    <view class="score-display">
+      <text class="score-text">{{score}}</text>
+      <text class="score-label">分</text>
+    </view>
+    <view class="result-description">
+      <text class="text">{{resultDescription}}</text>
+    </view>
+    <view class="btn-container">
+      <button class="btn-primary" bindtap="restartQuiz">重新测验</button>
+      <button class="btn-warning" bindtap="viewWrongQuestions">查看错题</button>
+      <button class="btn-danger" bindtap="shareResult">分享结果</button>
+    </view>
+  </view>
+</view>

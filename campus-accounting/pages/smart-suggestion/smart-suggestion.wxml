@@ -1,0 +1,137 @@
+<view class="container">
+  <view class="card">
+    <view class="title">💡 智能财务建议</view>
+    <view class="intro">
+      <text class="text">我们的智能财务建议系统可以根据您的消费数据、财务状态况和个人目标，为您提供个性化的财务建议和理财方案。</text>
+    </view>
+  </view>
+
+  <!-- 财务健康评估 -->
+  <view class="card">
+    <view class="subtitle">🏥 您的财务健康状态况</view>
+    <view class="health-assessment">
+      <view class="health-item">
+        <text class="text">财务状态况: </text>
+        <text class="status {{financialStatus === '健康' ? 'status-good' : financialStatus === '一般' ? 'status-medium' : 'status-poor'}}">{{financialStatus}}</text>
+      </view>
+      <view class="health-item">
+        <text class="text">储蓄率: </text>
+        <text class="amount {{savingsRate >= 20 ? 'amount-income' : 'amount-expense'}}">{{savingsRate}}%</text>
+      </view>
+      <view class="health-item">
+        <text class="text">债务率: </text>
+        <text class="amount {{debtRatio <= 30 ? 'amount-income' : 'amount-expense'}}">{{debtRatio}}%</text>
+      </view>
+      <view class="health-item">
+        <text class="text">现金额流: </text>
+        <text class="status {{cashFlow === '正' ? 'status-good' : 'status-poor'}}">{{cashFlow}}现金额流</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 个性化建议 -->
+  <view class="card">
+    <view class="subtitle">🎯 个性化财务建议</view>
+    <view class="suggestions">
+      <view class="suggestion-item" wx:for="{{personalizedSuggestions}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+    <button class="btn-primary" bindtap="viewMoreSuggestions">查看更多建议</button>
+  </view>
+
+  <!-- 消费优化建议 -->
+  <view class="card">
+    <view class="subtitle">💰 消费优化建议</view>
+    <view class="expense-optimization">
+      <view class="optimization-item" wx:for="{{expenseOptimization}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+    <button class="btn-warning" bindtap="optimizeExpenses">优化我的消费</button>
+  </view>
+
+  <!-- 储蓄建议 -->
+  <view class="card">
+    <view class="subtitle">💳 储蓄建议</view>
+    <view class="savings-suggestions">
+      <view class="savings-item" wx:for="{{savingsSuggestions}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+    <button class="btn-danger" bindtap="setSavingsGoals">设置储蓄目标</button>
+  </view>
+
+  <!-- 投资建议 -->
+  <view class="card">
+    <view class="subtitle">📈 投资建议</view>
+    <view class="investment-suggestions">
+      <view class="investment-item" wx:for="{{investmentSuggestions}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+    <button class="btn-primary" bindtap="viewInvestmentOptions">查看投资选项</button>
+  </view>
+
+  <!-- 财务目标设置定 -->
+  <view class="card">
+    <view class="subtitle">🎯 财务目标设置定</view>
+    <view class="financial-goals">
+      <view class="goal-item" wx:for="{{financialGoals}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+    <button class="btn-warning" bindtap="setFinancialGoals">设置定我的目标</button>
+  </view>
+
+  <!-- 预算优化 -->
+  <view class="card">
+    <view class="subtitle">📊 预算优化建议</view>
+    <view class="budget-optimization">
+      <view class="budget-item" wx:for="{{budgetOptimization}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+    <button class="btn-danger" bindtap="optimizeBudget">优化我的预算</button>
+  </view>
+
+  <!-- 财务知识学习 -->
+  <view class="card">
+    <view class="subtitle">📚 财务知识学习</view>
+    <view class="learning-resources">
+      <view class="resource-item" wx:for="{{learningResources}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+    <button class="btn-primary" bindtap="viewLearningCenter">进入学习中心</button>
+  </view>
+
+  <!-- 财务工具推荐 -->
+  <view class="card">
+    <view class="subtitle">🔧 财务工具推荐</view>
+    <view class="financial-tools">
+      <view class="tool-item" wx:for="{{financialTools}}" wx:key="index">
+        <text class="text">{{item}}</text>
+      </view>
+    </view>
+    <button class="btn-warning" bindtap="viewFinancialTools">查看更多工具</button>
+  </view>
+
+  <!-- 专家咨询 -->
+  <view class="card">
+    <view class="subtitle">🤝 专家咨询</view>
+    <text class="text">如果您有复杂的财务问题或需要专业的理财建议，可以预约我们的财务专家进行咨询。</text>
+    <button class="btn-danger" bindtap="bookConsultation">预约咨询</button>
+  </view>
+
+  <!-- 总结 -->
+  <view class="card">
+    <view class="title">📌 总结</view>
+    <text class="text">我们的智能财务建议系统可以帮助您全面了解自己的财务状态况，制定个性化的财务目标和理财方案，实现财务自由。记录住，良好的财务管理习惯是实现财务目标的基础。</text>
+    <view class="footer">
+      <text class="text">如果您有任何疑问或需要帮助，请随时联系我们的财务专家。</text>
+    </view>
+  </view>
+
+  <button class="btn-primary finish-btn" bindtap="finishReading">我已阅读并理解</button>
+</view>
