@@ -5,45 +5,159 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentDate: '2026年4月',
-    totalIncome: 5000,
-    totalExpense: 3874,
-    balance: 1126,
-    expenseRatio: 77.48,
-    monthlyBudget: 4000,
-    usedBudget: 3874,
-    remainingBudget: 126,
-    budgetProgress: 96.85,
-    expenseCategories: [
-      { name: '餐饮', percentage: '25.1%', amount: '¥1,250', color: '#FF8C69' },
-      { name: '购物', percentage: '18.6%', amount: '¥925', color: '#4ECDC4' },
-      { name: '交通', percentage: '12.3%', amount: '¥610', color: '#45B7D1' },
-      { name: '娱乐', percentage: '10.8%', amount: '¥538', color: '#FFA07A' },
-      { name: '学习', percentage: '8.7%', amount: '¥433', color: '#9B59B6' },
-      { name: '其他', percentage: '24.5%', amount: '¥1,218', color: '#3498DB' }
-    ],
-    incomeCategories: [
-      { name: '生活费', percentage: '70.0%', amount: '¥3,500', color: '#4CAF50' },
-      { name: '兼职', percentage: '20.0%', amount: '¥1,000', color: '#8BC34A' },
-      { name: '奖学金', percentage: '5.0%', amount: '¥250', color: '#CDDC39' },
-      { name: '其他', percentage: '5.0%', amount: '¥250', color: '#FFC107' }
-    ],
-    consumptionSuggestions: [
-      '餐饮支出占比较高，建议控制在外用餐频率，多自己做饭',
-      '购物支出较大，建议制定购物清单，避免冲动消费',
-      '交通支出合理，可继续保持当前出行方式',
-      '娱乐支出偏高，建议减少不必要的娱乐消费'
-    ]
+    currentDate: '',
+    totalIncome: 0,
+    totalExpense: 0,
+    balance: 0,
+    expenseRatio: 0,
+    monthlyBudget: 0,
+    usedBudget: 0,
+    remainingBudget: 0,
+    budgetProgress: 0,
+    expenseCategories: [],
+    incomeCategories: [],
+    trendData: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 计算当前日期
+    const now = new Date()
+    const currentDate = `${now.getFullYear()}年${now.getMonth() + 1}月`
+    this.setData({ currentDate })
+
+    // 从app.js获取数据
+    this.loadData()
+
     // 绘制图表
     this.drawExpenseChart()
     this.drawIncomeChart()
     this.drawTrendChart()
+  },
+
+  /**
+   * 从app.js获取数据
+   */
+  loadData: function() {
+    // 获取所有记录
+    const allRecords = app.getAllRecords()
+
+    // 计算总收入和总支出
+    const totalIncome = app.calculateTotalIncome(allRecords)
+    const totalExpense = app.calculateTotalExpense(allRecords)
+    const balance = totalIncome - totalExpense
+    const expenseRatio = totalIncome > 0 ? (totalExpense / totalIncome * 100).toFixed(2) : 0
+
+    // 计算预算
+    const monthlyBudget = app.globalData.monthlyBudget
+    const usedBudget = totalExpense
+    const remainingBudget = monthlyBudget - usedBudget
+    const budgetProgress = monthlyBudget > 0 ? (usedBudget / monthlyBudget * 100).toFixed(2) : 0
+
+    // 计算支出分类
+    const expenseCategories = this.calculateExpenseCategories(allRecords)
+    const incomeCategories = this.calculateIncomeCategories(allRecords)
+
+    // 计算消费趋势
+    const trendData = this.calculateTrendData(allRecords)
+
+    // 更新数据
+    this.setData({
+      totalIncome,
+      totalExpense,
+      balance,
+      expenseRatio,
+      monthlyBudget,
+      usedBudget,
+      remainingBudget,
+      budgetProgress,
+      expenseCategories,
+      incomeCategories,
+      trendData
+    })
+  },
+
+  /**
+   * 计算支出分类
+   */
+  calculateExpenseCategories: function(records) {
+    const expenseRecords = records.filter(record => record.type === 'expense')
+    const categories = app.globalData.categories.expense
+    const colors = ['#FF8C69', '#4ECDC4', '#45B7D1', '#FFA07A', '#9B59B6', '#3498DB', '#FFC107', '#8BC34A', '#CDDC39', '#E91E63', '#607D8B', '#795548']
+
+    const categoryData = categories.map((category, index) => {
+      const total = expenseRecords.filter(record => record.category === category).reduce((sum, record) => sum + record.amount, 0)
+      return {
+        name: category,
+        amount: total,
+        color: colors[index % colors.length]
+      }
+    }).filter(category => category.amount > 0)
+
+    // 计算百分比
+    const totalExpense = categoryData.reduce((sum, category) => sum + category.amount, 0)
+    categoryData.forEach(category => {
+      category.percentage = totalExpense > 0 ? (category.amount / totalExpense * 100).toFixed(1) + '%' : '0%'
+    })
+
+    return categoryData
+  },
+
+  /**
+   * 计算收入分类
+   */
+  calculateIncomeCategories: function(records) {
+    const incomeRecords = records.filter(record => record.type === 'income')
+    const categories = app.globalData.categories.income
+    const colors = ['#4CAF50', '#8BC34A', '#CDDC39', '#FFC107', '#FF9800', '#FF5722']
+
+    const categoryData = categories.map((category, index) => {
+      const total = incomeRecords.filter(record => record.category === category).reduce((sum, record) => sum + record.amount, 0)
+      return {
+        name: category,
+        amount: total,
+        color: colors[index % colors.length]
+      }
+    }).filter(category => category.amount > 0)
+
+    // 计算百分比
+    const totalIncome = categoryData.reduce((sum, category) => sum + category.amount, 0)
+    categoryData.forEach(category => {
+      category.percentage = totalIncome > 0 ? (category.amount / totalIncome * 100).toFixed(1) + '%' : '0%'
+    })
+
+    return categoryData
+  },
+
+  /**
+   * 计算消费趋势
+   */
+  calculateTrendData: function(records) {
+    // 按日期分组记录
+    const dateMap = {}
+    records.forEach(record => {
+      if (!dateMap[record.date]) {
+        dateMap[record.date] = { income: 0, expense: 0 }
+      }
+      if (record.type === 'income') {
+        dateMap[record.date].income += record.amount
+      } else {
+        dateMap[record.date].expense += record.amount
+      }
+    })
+
+    // 转换为数组
+    const trendData = Object.keys(dateMap).map(date => {
+      return {
+        date,
+        income: dateMap[date].income,
+        expense: dateMap[date].expense
+      }
+    }).sort((a, b) => new Date(a.date) - new Date(b.date))
+
+    return trendData
   },
 
   /**
@@ -65,8 +179,8 @@ Page({
       canvas.height = res[0].height * dpr
       ctx.scale(dpr, dpr)
 
-      // 绘制半圆形环状图
-      this.drawDonut(ctx, res[0].width, res[0].height, this.data.expenseCategories)
+      // 绘制饼图
+      this.drawPieChart(ctx, res[0].width, res[0].height, this.data.expenseCategories)
     })
   },
 
@@ -89,155 +203,159 @@ Page({
       canvas.height = res[0].height * dpr
       ctx.scale(dpr, dpr)
 
-      // 绘制半圆形环状图
-      this.drawDonut(ctx, res[0].width, res[0].height, this.data.incomeCategories)
+      // 绘制饼图
+      this.drawPieChart(ctx, res[0].width, res[0].height, this.data.incomeCategories)
     })
+  },
+
+  /**
+   * 绘制饼图
+   */
+  drawPieChart: function(ctx, width, height, categories) {
+    const centerX = width / 2
+    const centerY = height / 2
+    const radius = Math.min(width, height) / 3
+
+    let startAngle = 0
+
+    categories.forEach(category => {
+      const percentage = parseFloat(category.percentage) / 100
+      const endAngle = startAngle + percentage * 2 * Math.PI
+
+      ctx.beginPath()
+      ctx.arc(centerX, centerY, radius, startAngle, endAngle)
+      ctx.lineWidth = 1
+      ctx.strokeStyle = '#fff'
+      ctx.stroke()
+      ctx.fillStyle = category.color
+      ctx.fill()
+
+      startAngle = endAngle
+    })
+
+    // 绘制图表中心文字
+    ctx.fillStyle = '#333'
+    ctx.font = '16px Arial'
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    ctx.fillText('总支出', centerX, centerY)
+    ctx.fillText(`¥${this.data.totalExpense}`, centerX, centerY + 20)
   },
 
   /**
    * 绘制趋势图表
    */
   drawTrendChart: function() {
-    // 这里可以添加趋势图表的绘制逻辑
-    // 比如使用Canvas绘制折线图或柱状图
-  },
+    const query = wx.createSelectorQuery()
+    query.select('#trendChart').fields({
+      node: true,
+      size: true
+    }).exec((res) => {
+      if (!res || !res[0]) return
 
-  /**
-   * 计算日均消费和日均收入
-   */
-  calculateDailyAverage: function () {
-    const now = new Date()
-    const query = this.buildTimeQuery()
-    const startDate = new Date(query.startDate)
-    
-    // 计算天数
-    const diffTime = Math.abs(now - startDate)
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1
-    
-    const averageDailyExpense = this.data.totalExpense / diffDays
-    const averageDailyIncome = this.data.totalIncome / diffDays
-    
-    // 计算收支比和样式
-    var expenseRatio = 0
-    var ratioClass = 'amount-expense'
-    
-    if (this.data.totalIncome > 0) {
-      expenseRatio = this.data.totalExpense / this.data.totalIncome
-      if (expenseRatio < 0.8) {
-        ratioClass = 'amount-income'
-      } else if (expenseRatio < 1) {
-        ratioClass = 'amount-warning'
-      }
-    }
-    
-    const expenseRatioPercentage = this.data.totalIncome > 0 ? (expenseRatio * 100).toFixed(1) : '0'
-    
-    this.setData({
-      averageDailyExpense: averageDailyExpense.toFixed(2),
-      averageDailyIncome: averageDailyIncome.toFixed(2),
-      expenseRatioPercentage: expenseRatioPercentage,
-      ratioClass: ratioClass
+      const canvas = res[0].node
+      const ctx = canvas.getContext('2d')
+      const dpr = wx.getSystemInfoSync().pixelRatio
+
+      canvas.width = res[0].width * dpr
+      canvas.height = res[0].height * dpr
+      ctx.scale(dpr, dpr)
+
+      // 绘制折线图
+      this.drawLineChart(ctx, res[0].width, res[0].height, this.data.trendData)
     })
   },
 
   /**
-   * 构建时间查询
+   * 绘制折线图
    */
-  buildTimeQuery: function() {
-    const now = new Date()
-    const startDate = new Date(now.getFullYear(), now.getMonth(), 1)
-    const endDate = new Date(now.getFullYear(), now.getMonth() + 1, 0)
+  drawLineChart: function(ctx, width, height, trendData) {
+    // 设置图表区域
+    const padding = 40
+    const chartWidth = width - 2 * padding
+    const chartHeight = height - 2 * padding
 
-    return {
-      startDate: startDate.toISOString().split('T')[0],
-      endDate: endDate.toISOString().split('T')[0]
-    }
-  },
-
-  /**
-   * 绘制半圆形环状图
-   */
-  drawDonut: function(ctx, width, height, categories) {
-    const centerX = width / 2
-    const centerY = height / 2
-    const radius = Math.min(width, height) / 3
-    const strokeWidth = 50
-
-    const total = categories.reduce((sum, category) => sum + parseFloat(category.percentage), 0)
-    
-    let startAngle = -Math.PI / 2 // 从顶部开始
-
-    categories.forEach(category => {
-      const percentage = parseFloat(category.percentage) / total
-      const endAngle = startAngle + percentage * Math.PI // 绘制半圆形
-
-      ctx.beginPath()
-      ctx.arc(centerX, centerY, radius, startAngle, endAngle)
-      ctx.lineWidth = strokeWidth
-      ctx.strokeStyle = category.color
-      ctx.stroke()
-
-      // 绘制放射状引出线和标签
-      this.drawLabel(ctx, centerX, centerY, radius, startAngle, endAngle, category)
-
-      startAngle = endAngle
+    // 计算最大值
+    let maxValue = 0
+    trendData.forEach(item => {
+      maxValue = Math.max(maxValue, item.income, item.expense)
     })
-  },
 
-  /**
-   * 绘制放射状引出线和标签
-   */
-  drawLabel: function(ctx, centerX, centerY, radius, startAngle, endAngle, category) {
-    const angle = (startAngle + endAngle) / 2
-    const labelRadius = radius + 70
-
-    // 计算标签位置
-    const labelX = centerX + Math.cos(angle) * labelRadius
-    const labelY = centerY + Math.sin(angle) * labelRadius
-
-    // 绘制引出线
+    // 绘制坐标轴
     ctx.beginPath()
-    ctx.moveTo(centerX + Math.cos(angle) * radius, centerY + Math.sin(angle) * radius)
-    ctx.lineTo(labelX, labelY)
-    ctx.strokeStyle = category.color
-    ctx.lineWidth = 2
+    ctx.strokeStyle = '#ccc'
+    ctx.lineWidth = 1
+    ctx.moveTo(padding, padding)
+    ctx.lineTo(padding, height - padding)
+    ctx.lineTo(width - padding, height - padding)
     ctx.stroke()
 
-    // 绘制标签
-    ctx.fillStyle = category.color
+    // 绘制网格线
+    ctx.beginPath()
+    ctx.strokeStyle = '#f0f0f0'
+    ctx.lineWidth = 1
+    for (let i = 0; i <= 5; i++) {
+      const y = padding + i * (chartHeight / 5)
+      ctx.moveTo(padding, y)
+      ctx.lineTo(width - padding, y)
+    }
+    ctx.stroke()
+
+    // 绘制收入折线
+    ctx.beginPath()
+    ctx.strokeStyle = '#4CAF50'
+    ctx.lineWidth = 2
+    trendData.forEach((item, index) => {
+      const x = padding + index * (chartWidth / (trendData.length - 1))
+      const y = height - padding - (item.income / maxValue) * chartHeight
+      if (index === 0) {
+        ctx.moveTo(x, y)
+      } else {
+        ctx.lineTo(x, y)
+      }
+    })
+    ctx.stroke()
+
+    // 绘制支出折线
+    ctx.beginPath()
+    ctx.strokeStyle = '#F44336'
+    ctx.lineWidth = 2
+    trendData.forEach((item, index) => {
+      const x = padding + index * (chartWidth / (trendData.length - 1))
+      const y = height - padding - (item.expense / maxValue) * chartHeight
+      if (index === 0) {
+        ctx.moveTo(x, y)
+      } else {
+        ctx.lineTo(x, y)
+      }
+    })
+    ctx.stroke()
+
+    // 绘制数据点
+    trendData.forEach((item, index) => {
+      const x = padding + index * (chartWidth / (trendData.length - 1))
+      
+      // 绘制收入点
+      const yIncome = height - padding - (item.income / maxValue) * chartHeight
+      ctx.beginPath()
+      ctx.arc(x, yIncome, 3, 0, 2 * Math.PI)
+      ctx.fillStyle = '#4CAF50'
+      ctx.fill()
+
+      // 绘制支出点
+      const yExpense = height - padding - (item.expense / maxValue) * chartHeight
+      ctx.beginPath()
+      ctx.arc(x, yExpense, 3, 0, 2 * Math.PI)
+      ctx.fillStyle = '#F44336'
+      ctx.fill()
+    })
+
+    // 绘制图例
+    ctx.fillStyle = '#333'
     ctx.font = '12px Arial'
-    ctx.textAlign = 'center'
+    ctx.textAlign = 'left'
     ctx.textBaseline = 'middle'
-    ctx.fillText(category.name + ' ' + category.percentage, labelX, labelY)
-  },
-
-  /**
-   * 导出PDF
-   */
-  exportPDF: function() {
-    wx.showToast({
-      title: '导出PDF功能开发中',
-      icon: 'none'
-    })
-  },
-
-  /**
-   * 导出Excel
-   */
-  exportExcel: function() {
-    wx.showToast({
-      title: '导出Excel功能开发中',
-      icon: 'none'
-    })
-  },
-
-  /**
-   * 导出图片
-   */
-  exportImage: function() {
-    wx.showToast({
-      title: '导出图片功能开发中',
-      icon: 'none'
-    })
+    ctx.fillText('收入', padding, padding - 20)
+    ctx.fillText('支出', width / 2, padding - 20)
   }
 })

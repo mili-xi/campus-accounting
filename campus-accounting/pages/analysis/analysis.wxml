@@ -34,18 +34,9 @@
   <view class="card">
     <view class="subtitle">📊 支出分类</view>
     <view class="chart-container">
-      <canvas class="semi-donut-chart" id="expenseChart" canvas-id="expenseChart"></canvas>
-      <view class="chart-center">
-        <text class="chart-center-text">总支出</text>
-        <text class="chart-center-amount">¥{{totalExpense}}</text>
-      </view>
+      <canvas class="pie-chart" id="expenseChart" canvas-id="expenseChart"></canvas>
     </view>
-  </view>
-
-  <!-- 支出分类详情 -->
-  <view class="card">
-    <view class="subtitle">📋 支出分类详情</view>
-    <view class="category-grid">
+    <view class="category-details">
       <view class="category-item" wx:for="{{expenseCategories}}" wx:key="name">
         <view class="category-info">
           <view class="category-dot" style="background-color: {{item.color}};"></view>
@@ -54,7 +45,7 @@
             <text class="category-percentage">{{item.percentage}}</text>
           </view>
         </view>
-        <text class="category-amount">{{item.amount}}</text>
+        <text class="category-amount">¥{{item.amount}}</text>
       </view>
     </view>
   </view>
@@ -63,18 +54,9 @@
   <view class="card">
     <view class="subtitle">📊 收入分类</view>
     <view class="chart-container">
-      <canvas class="semi-donut-chart" id="incomeChart" canvas-id="incomeChart"></canvas>
-      <view class="chart-center">
-        <text class="chart-center-text">总收入</text>
-        <text class="chart-center-amount">¥{{totalIncome}}</text>
-      </view>
+      <canvas class="pie-chart" id="incomeChart" canvas-id="incomeChart"></canvas>
     </view>
-  </view>
-
-  <!-- 收入分类详情 -->
-  <view class="card">
-    <view class="subtitle">📋 收入分类详情</view>
-    <view class="category-grid">
+    <view class="category-details">
       <view class="category-item" wx:for="{{incomeCategories}}" wx:key="name">
         <view class="category-info">
           <view class="category-dot" style="background-color: {{item.color}};"></view>
@@ -83,7 +65,7 @@
             <text class="category-percentage">{{item.percentage}}</text>
           </view>
         </view>
-        <text class="category-amount">{{item.amount}}</text>
+        <text class="category-amount">¥{{item.amount}}</text>
       </view>
     </view>
   </view>
@@ -92,7 +74,7 @@
   <view class="card">
     <view class="subtitle">📉 消费趋势</view>
     <view class="trend-chart">
-      <canvas class="trend-chart" canvas-id="trendChart"></canvas>
+      <canvas class="line-chart" id="trendChart" canvas-id="trendChart"></canvas>
     </view>
   </view>
 
@@ -119,27 +101,6 @@
         </view>
         <text class="text">{{budgetProgress}}%</text>
       </view>
-    </view>
-  </view>
-
-  <!-- 消费建议 -->
-  <view class="card">
-    <view class="subtitle">💡 消费建议</view>
-    <view class="suggestions">
-      <view class="suggestion-item" wx:for="{{consumptionSuggestions}}" wx:key="index">
-        <text class="text">{{item}}</text>
-      </view>
-    </view>
-  </view>
-
-  <!-- 导出分析 -->
-  <view class="card">
-    <view class="subtitle">📥 导出分析</view>
-    <text class="text">导出您的财务分析报告，方便保存和打印。</text>
-    <view class="export-buttons">
-      <button class="btn-primary" bindtap="exportPDF">导出PDF</button>
-      <button class="btn-warning" bindtap="exportExcel">导出Excel</button>
-      <button class="btn-danger" bindtap="exportImage">导出图片</button>
     </view>
   </view>
 </view>
