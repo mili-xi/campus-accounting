@@ -36,10 +36,12 @@ Page({
    * 生命周期函数--监听页面渲染完成
    */
   onReady: function () {
-    // 页面渲染完成后再绘制图表，确保Canvas元素存在
-    this.drawExpenseChart()
-    this.drawIncomeChart()
-    this.drawTrendChart()
+    // 页面渲染完成后延迟一段时间再绘制图表，确保Canvas元素完全渲染
+    setTimeout(() => {
+      this.drawExpenseChart()
+      this.drawIncomeChart()
+      this.drawTrendChart()
+    }, 500)
   },
 
   /**
@@ -264,18 +266,25 @@ Page({
       node: true,
       size: true
     }).exec((res) => {
-      if (!res || !res[0]) return
+      if (!res || !res[0] || !res[0].node) {
+        console.warn('无法找到支出图表Canvas元素')
+        return
+      }
 
-      const canvas = res[0].node
-      const ctx = canvas.getContext('2d')
-      const dpr = wx.getSystemInfoSync().pixelRatio
+      try {
+        const canvas = res[0].node
+        const ctx = canvas.getContext('2d')
+        const dpr = wx.getSystemInfoSync().pixelRatio
 
-      canvas.width = res[0].width * dpr
-      canvas.height = res[0].height * dpr
-      ctx.scale(dpr, dpr)
+        canvas.width = res[0].width * dpr
+        canvas.height = res[0].height * dpr
+        ctx.scale(dpr, dpr)
 
-      // 绘制饼图
-      this.drawPieChart(ctx, res[0].width, res[0].height, this.data.expenseCategories)
+        // 绘制饼图
+        this.drawPieChart(ctx, res[0].width, res[0].height, this.data.expenseCategories)
+      } catch (error) {
+        console.error('绘制支出图表失败:', error)
+      }
     })
   },
 
@@ -288,18 +297,25 @@ Page({
       node: true,
       size: true
     }).exec((res) => {
-      if (!res || !res[0]) return
+      if (!res || !res[0] || !res[0].node) {
+        console.warn('无法找到收入图表Canvas元素')
+        return
+      }
 
-      const canvas = res[0].node
-      const ctx = canvas.getContext('2d')
-      const dpr = wx.getSystemInfoSync().pixelRatio
+      try {
+        const canvas = res[0].node
+        const ctx = canvas.getContext('2d')
+        const dpr = wx.getSystemInfoSync().pixelRatio
 
-      canvas.width = res[0].width * dpr
-      canvas.height = res[0].height * dpr
-      ctx.scale(dpr, dpr)
+        canvas.width = res[0].width * dpr
+        canvas.height = res[0].height * dpr
+        ctx.scale(dpr, dpr)
 
-      // 绘制饼图
-      this.drawPieChart(ctx, res[0].width, res[0].height, this.data.incomeCategories)
+        // 绘制饼图
+        this.drawPieChart(ctx, res[0].width, res[0].height, this.data.incomeCategories)
+      } catch (error) {
+        console.error('绘制收入图表失败:', error)
+      }
     })
   },
 
@@ -346,18 +362,25 @@ Page({
       node: true,
       size: true
     }).exec((res) => {
-      if (!res || !res[0]) return
+      if (!res || !res[0] || !res[0].node) {
+        console.warn('无法找到消费趋势图表Canvas元素')
+        return
+      }
 
-      const canvas = res[0].node
-      const ctx = canvas.getContext('2d')
-      const dpr = wx.getSystemInfoSync().pixelRatio
+      try {
+        const canvas = res[0].node
+        const ctx = canvas.getContext('2d')
+        const dpr = wx.getSystemInfoSync().pixelRatio
 
-      canvas.width = res[0].width * dpr
-      canvas.height = res[0].height * dpr
-      ctx.scale(dpr, dpr)
+        canvas.width = res[0].width * dpr
+        canvas.height = res[0].height * dpr
+        ctx.scale(dpr, dpr)
 
-      // 绘制折线图
-      this.drawLineChart(ctx, res[0].width, res[0].height, this.data.trendData)
+        // 绘制折线图
+        this.drawLineChart(ctx, res[0].width, res[0].height, this.data.trendData)
+      } catch (error) {
+        console.error('绘制消费趋势图表失败:', error)
+      }
     })
   },
 
