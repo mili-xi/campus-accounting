@@ -8,25 +8,20 @@
 /* 日期过滤器 */
 .date-filter {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-bottom: 20rpx;
-  flex-wrap: wrap;
-  gap: 10rpx;
 }
 
-.date-filter .text {
-  font-size: 28rpx;
-  color: #666;
-}
-
-.date-filter .btn-primary,
-.date-filter .btn-warning,
-.date-filter .btn-danger {
+.picker-view {
   padding: 15rpx 20rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
+  color: #333;
+  background-color: #f8f8f8;
   border-radius: 10rpx;
-  margin: 0;
+  border: 1rpx solid #e0e0e0;
+  min-width: 200rpx;
+  text-align: center;
 }
 
 /* 顶部标题 */

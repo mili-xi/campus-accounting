@@ -16,7 +16,9 @@ Page({
     budgetProgress: 0,
     expenseCategories: [],
     incomeCategories: [],
-    trendData: []
+    trendData: [],
+    dateRangeIndex: 1, // 默认选择本月
+    dateRangeOptions: ['本周', '本月', '一年']
   },
 
   /**
@@ -33,6 +35,26 @@ Page({
     this.drawExpenseChart()
     this.drawIncomeChart()
     this.drawTrendChart()
+  },
+
+  /**
+   * 日期范围选择变化
+   */
+  onDateRangeChange: function(e) {
+    const index = parseInt(e.detail.value)
+    this.setData({ dateRangeIndex: index })
+
+    switch (index) {
+      case 0:
+        this.selectWeek()
+        break
+      case 1:
+        this.selectMonth()
+        break
+      case 2:
+        this.selectYear()
+        break
+    }
   },
 
   /**
