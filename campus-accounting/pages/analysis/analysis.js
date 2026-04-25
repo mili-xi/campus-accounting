@@ -30,8 +30,13 @@ Page({
 
     // 从app.js获取数据
     this.loadData()
+  },
 
-    // 绘制图表
+  /**
+   * 生命周期函数--监听页面渲染完成
+   */
+  onReady: function () {
+    // 页面渲染完成后再绘制图表，确保Canvas元素存在
     this.drawExpenseChart()
     this.drawIncomeChart()
     this.drawTrendChart()
@@ -254,7 +259,7 @@ Page({
    * 绘制支出图表
    */
   drawExpenseChart: function() {
-    const query = wx.createSelectorQuery()
+    const query = wx.createSelectorQuery().in(this)
     query.select('#expenseChart').fields({
       node: true,
       size: true
@@ -278,7 +283,7 @@ Page({
    * 绘制收入图表
    */
   drawIncomeChart: function() {
-    const query = wx.createSelectorQuery()
+    const query = wx.createSelectorQuery().in(this)
     query.select('#incomeChart').fields({
       node: true,
       size: true
@@ -336,7 +341,7 @@ Page({
    * 绘制趋势图表
    */
   drawTrendChart: function() {
-    const query = wx.createSelectorQuery()
+    const query = wx.createSelectorQuery().in(this)
     query.select('#trendChart').fields({
       node: true,
       size: true
