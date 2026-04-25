@@ -23,10 +23,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 计算当前日期
-    const now = new Date()
-    const currentDate = `${now.getFullYear()}年${now.getMonth() + 1}月`
-    this.setData({ currentDate })
+    // 默认选择本月
+    this.selectMonth()
 
     // 从app.js获取数据
     this.loadData()
@@ -38,15 +36,85 @@ Page({
   },
 
   /**
+   * 选择本周
+   */
+  selectWeek: function() {
+    const now = new Date()
+    const dayOfWeek = now.getDay()
+    const startDate = new Date(now)
+    startDate.setDate(now.getDate() - dayOfWeek + 1) // 本周一
+
+    const endDate = new Date(startDate)
+    endDate.setDate(startDate.getDate() + 6) // 本周日
+
+    const currentDate = `${startDate.getFullYear()}年${startDate.getMonth() + 1}月${startDate.getDate()}日 - ${endDate.getFullYear()}年${endDate.getMonth() + 1}月${endDate.getDate()}日`
+    this.setData({ currentDate, startDate: this.formatDate(startDate), endDate: this.formatDate(endDate) })
+
+    this.loadData()
+    this.drawExpenseChart()
+    this.drawIncomeChart()
+    this.drawTrendChart()
+  },
+
+  /**
+   * 选择本月
+   */
+  selectMonth: function() {
+    const now = new Date()
+    const startDate = new Date(now.getFullYear(), now.getMonth(), 1)
+    const endDate = new Date(now.getFullYear(), now.getMonth() + 1, 0)
+
+    const currentDate = `${now.getFullYear()}年${now.getMonth() + 1}月`
+    this.setData({ currentDate, startDate: this.formatDate(startDate), endDate: this.formatDate(endDate) })
+
+    this.loadData()
+    this.drawExpenseChart()
+    this.drawIncomeChart()
+    this.drawTrendChart()
+  },
+
+  /**
+   * 选择一年
+   */
+  selectYear: function() {
+    const now = new Date()
+    const startDate = new Date(now.getFullYear(), 0, 1)
+    const endDate = new Date(now.getFullYear(), 11, 31)
+
+    const currentDate = `${now.getFullYear()}年`
+    this.setData({ currentDate, startDate: this.formatDate(startDate), endDate: this.formatDate(endDate) })
+
+    this.loadData()
+    this.drawExpenseChart()
+    this.drawIncomeChart()
+    this.drawTrendChart()
+  },
+
+  /**
+   * 格式化日期
+   */
+  formatDate: function(date) {
+    const year = date.getFullYear()
+    const month = String(date.getMonth() + 1).padStart(2, '0')
+    const day = String(date.getDate()).padStart(2, '0')
+    return `${year}-${month}-${day}`
+  },
+
+  /**
    * 从app.js获取数据
    */
   loadData: function() {
     // 获取所有记录
     const allRecords = app.getAllRecords()
 
+    // 根据日期范围过滤记录
+    const filteredRecords = allRecords.filter(record => {
+      return record.date >= this.data.startDate && record.date <= this.data.endDate
+    })
+
     // 计算总收入和总支出
-    const totalIncome = app.calculateTotalIncome(allRecords)
-    const totalExpense = app.calculateTotalExpense(allRecords)
+    const totalIncome = app.calculateTotalIncome(filteredRecords)
+    const totalExpense = app.calculateTotalExpense(filteredRecords)
     const balance = totalIncome - totalExpense
     const expenseRatio = totalIncome > 0 ? (totalExpense / totalIncome * 100).toFixed(2) : 0
 
@@ -57,11 +125,11 @@ Page({
     const budgetProgress = monthlyBudget > 0 ? (usedBudget / monthlyBudget * 100).toFixed(2) : 0
 
     // 计算支出分类
-    const expenseCategories = this.calculateExpenseCategories(allRecords)
-    const incomeCategories = this.calculateIncomeCategories(allRecords)
+    const expenseCategories = this.calculateExpenseCategories(filteredRecords)
+    const incomeCategories = this.calculateIncomeCategories(filteredRecords)
 
     // 计算消费趋势
-    const trendData = this.calculateTrendData(allRecords)
+    const trendData = this.calculateTrendData(filteredRecords)
 
     // 更新数据
     this.setData({

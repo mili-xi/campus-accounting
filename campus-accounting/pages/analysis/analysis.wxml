@@ -2,6 +2,12 @@
   <!-- 顶部标题 -->
   <view class="card">
     <view class="title">📊 财务分析</view>
+    <view class="date-filter">
+      <text class="text">选择日期范围：</text>
+      <button class="btn-primary" bindtap="selectWeek">本周</button>
+      <button class="btn-warning" bindtap="selectMonth">本月</button>
+      <button class="btn-danger" bindtap="selectYear">一年</button>
+    </view>
     <view class="report-date">
       <text class="text">{{currentDate}}</text>
     </view>

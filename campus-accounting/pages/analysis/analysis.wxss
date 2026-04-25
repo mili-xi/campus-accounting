@@ -5,6 +5,30 @@
   min-height: 100vh;
 }
 
+/* 日期过滤器 */
+.date-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  flex-wrap: wrap;
+  gap: 10rpx;
+}
+
+.date-filter .text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.date-filter .btn-primary,
+.date-filter .btn-warning,
+.date-filter .btn-danger {
+  padding: 15rpx 20rpx;
+  font-size: 24rpx;
+  border-radius: 10rpx;
+  margin: 0;
+}
+
 /* 顶部标题 */
 .title {
   font-size: 36rpx;
